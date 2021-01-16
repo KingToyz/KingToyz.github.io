@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword" content="">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
+    <link rel="alternate" type="application/atom+xml" title="Hexo" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        803.打砖块｜undefined
+        
+    </title>
+
+    <link rel="canonical" href="https://github.com/KingToyz/KingToyz.github.io/2021/01/16/2021/01/16/2021/01/16/803-打砖块/">
+
+    <!-- Bootstrap Core CSS -->
+    
+<link rel="stylesheet" href="/2021/01/16/css/bootstrap.min.css">
+
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/2021/01/16/css/blog-style.css">
+
+
+    <!-- Pygments Github CSS -->
+    
+<link rel="stylesheet" href="/2021/01/16/css/syntax.css">
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/2021/01/16/">
+                <span class="brand-logo">
+                    Hexo
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/2021/01/16/">Home</a>
+                    </li>
+					
+                    
+					
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>803.打砖块</h1>
+                    
+                    <span class="meta">
+                         作者 John Doe
+                        <span>
+                          日期 2021-01-16
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/2021/01/16/tags/#力扣"
+                           title="力扣">力扣</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            803.打砖块
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p><img src="%E6%8D%95%E8%8E%B7.PNG"></p>
+<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>这是一道难度较大的并查集的题目，关键的点在于建立并查集关系后如何找出答案，并查集可以合并，但是如何拆开并查集是一个问题，而本题使用的方法是一个逆推的过程。</p>
+<h2 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h2><p>​    首先设两个数组，father和sz分别表示祖先的下标和当i为祖先的时候连通的数量。设立一个数组is,将grid赋值给他，然后再将hits中的下标置为0，目的是为了获得击打的砖块直接消除后剩下稳定块的个数。</p>
+<p>​    这时候，以is数组建立并查集关系，每一次遍历的过程中，如果遇到行数为0的砖块，需要记录稳定的砖块数，它是sz[m*n]，同时也要建立并查集的关系，便于记录各个连通的稳定块。</p>
+<p>​    紧接着，再一次遍历hits数组，注意这一次是逆序遍历，目的是为了恢复原来的稳定块的个数，由于前后的关系，所以需要逆序处理。在这一次处理过程中，首先要获得原来的稳定块个数prev，当我们遇到行数为0的击打块的时候，同样需要记录稳定块的数量，即sz[m*n]，同时与其它的块一样，分别处理四个方向上的砖块，让他们连通，最后再次获得现在的稳定块个数size,答案为max(0,size-prev-1)(减去自己的个数)(注意，一旦稳定块不稳定后会直接掉下不会落在其它位置)。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;vector&lt;int&gt;&gt;is;</span><br><span class="line">vector&lt;int&gt;father,sz;</span><br><span class="line">int n,m;</span><br><span class="line">vector&lt;int&gt; hitBricks(vector&lt;vector&lt;int&gt;&gt;&amp; grid, vector&lt;vector&lt;int&gt;&gt;&amp; hits) &#123;</span><br><span class="line">    m&#x3D;grid.size(),n&#x3D;grid[0].size();</span><br><span class="line">    is&#x3D;grid;</span><br><span class="line">    father.resize(m*n+1);</span><br><span class="line">    sz.resize(m*n+1);</span><br><span class="line">    for(int i&#x3D;0;i&lt;father.size();++i)</span><br><span class="line">    &#123;</span><br><span class="line">        father[i]&#x3D;i;</span><br><span class="line">        sz[i]&#x3D;1;</span><br><span class="line">    &#125;</span><br><span class="line">    for(int i&#x3D;0;i&lt;hits.size();++i)</span><br><span class="line">    &#123;</span><br><span class="line">        is[hits[i][0]][hits[i][1]]&#x3D;0;</span><br><span class="line">    &#125;</span><br><span class="line">    for(int i&#x3D;0;i&lt;is.size();++i)</span><br><span class="line">    &#123;</span><br><span class="line">        for(int j&#x3D;0;j&lt;is[i].size();++j)</span><br><span class="line">        &#123;</span><br><span class="line">            if(is[i][j]&#x3D;&#x3D;1)</span><br><span class="line">            &#123;</span><br><span class="line">                if(i&#x3D;&#x3D;0)</span><br><span class="line">                &#123;</span><br><span class="line">                    unionfunc(j,m*n);&#x2F;&#x2F;合并为连通块数量</span><br><span class="line">                &#125;</span><br><span class="line">                if(i&gt;0&amp;&amp;is[i-1][j]&#x3D;&#x3D;1)</span><br><span class="line">                &#123;</span><br><span class="line">                    unionfunc((i-1)*n+j,i*n+j);</span><br><span class="line">                &#125;</span><br><span class="line">                if(j&gt;0&amp;&amp;is[i][j-1]&#x3D;&#x3D;1)</span><br><span class="line">                &#123;</span><br><span class="line">                    unionfunc(i*n+j-1,i*n+j);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    vector&lt;int&gt;res(hits.size(),0);</span><br><span class="line">    vector&lt;vector&lt;int&gt;&gt;temp&#x3D;&#123;&#123;0,1&#125;,&#123;1,0&#125;,&#123;-1,0&#125;,&#123;0,-1&#125;&#125;;</span><br><span class="line">    for(int i&#x3D;hits.size()-1;i&gt;&#x3D;0;--i)&#x2F;&#x2F;注意逆序</span><br><span class="line">    &#123;</span><br><span class="line">        int x&#x3D;hits[i][0],y&#x3D;hits[i][1];</span><br><span class="line">        if(grid[x][y]&#x3D;&#x3D;0)</span><br><span class="line">            continue;</span><br><span class="line">        int prev&#x3D;findsize(m*n);</span><br><span class="line">        if(x&#x3D;&#x3D;0)</span><br><span class="line">        &#123;</span><br><span class="line">            unionfunc(y,m*n);&#x2F;&#x2F;合并为连通块数量</span><br><span class="line">        &#125;</span><br><span class="line">        for(int j&#x3D;0;j&lt;temp.size();++j)</span><br><span class="line">        &#123;</span><br><span class="line">            int l&#x3D;temp[j][0]+x,r&#x3D;temp[j][1]+y;</span><br><span class="line">            if(l&gt;&#x3D;0&amp;&amp;l&lt;m&amp;&amp;r&gt;&#x3D;0&amp;&amp;r&lt;n&amp;&amp;is[l][r]&#x3D;&#x3D;1)</span><br><span class="line">            &#123;</span><br><span class="line">                unionfunc(l*n+r,x*n+y);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        int now&#x3D;findsize(m*n);</span><br><span class="line">        res[i]&#x3D;max(res[i],now-prev-1);</span><br><span class="line">        is[x][y]&#x3D;1;</span><br><span class="line">    &#125;</span><br><span class="line">    return res;</span><br><span class="line">&#125;</span><br><span class="line">int findfather(int now)</span><br><span class="line">&#123;</span><br><span class="line">    int temp&#x3D;now;</span><br><span class="line">    while(temp!&#x3D;father[temp])</span><br><span class="line">    &#123;</span><br><span class="line">        temp&#x3D;father[temp];</span><br><span class="line">    &#125;</span><br><span class="line">    while(now!&#x3D;father[now])</span><br><span class="line">    &#123;</span><br><span class="line">        int x&#x3D;father[now];</span><br><span class="line">        father[now]&#x3D;temp;</span><br><span class="line">        now&#x3D;x;</span><br><span class="line">    &#125;</span><br><span class="line">    return temp;</span><br><span class="line">&#125;</span><br><span class="line">void unionfunc(int x,int y)</span><br><span class="line">&#123;</span><br><span class="line">    int l&#x3D;findfather(x),r&#x3D;findfather(y);</span><br><span class="line">    if(l&#x3D;&#x3D;r)</span><br><span class="line">    &#123;</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    father[l]&#x3D;r;</span><br><span class="line">    sz[r]+&#x3D;sz[l];</span><br><span class="line">&#125;</span><br><span class="line">int findsize(int x)</span><br><span class="line">&#123;</span><br><span class="line">    return sz[findfather(x)];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>在并查集的题目中，解决问题的基础都是建立并查集关系，但是具体实现题目要求还是要多思考才能解决。</p>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    
+                    <li class="next">
+                        <a href="/2021/01/16/2021/01/16/面试题08-06/" data-toggle="tooltip" data-placement="top"
+                           title="面试题 08.06 汉诺塔问题">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%86%E6%9E%90"><span class="toc-text">分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%87%E7%A8%8B"><span class="toc-text">过程</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-text">总结</span></a></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Hexo 2021
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a target="_blank" rel="noopener" href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+
+<script src="/2021/01/16/js/jquery.min.js"></script>
+
+
+<!-- Bootstrap Core JavaScript -->
+
+<script src="/2021/01/16/js/bootstrap.min.js"></script>
+
+
+<!-- Custom Theme JavaScript -->
+
+<script src="/2021/01/16/js/blog.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://github.com/KingToyz/KingToyz.github.io/2021/01/16/2021/01/16/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="">
+</body>
+
+</html>
