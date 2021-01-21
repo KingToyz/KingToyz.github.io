@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        1386.安排电影院座位｜undefined
+        1202.交换字符串中的元素｜undefined
         
     </title>
 
-    <link rel="canonical" href="https://github.com/KingToyz/KingToyz.github.io/2021/01/16/2021/01/16/2021/01/20/1386-安排电影院座位/">
+    <link rel="canonical" href="https://github.com/KingToyz/KingToyz.github.io/2021/01/16/2021/01/16/2021/01/21/1202-交换字符串中的元素/">
 
     <!-- Bootstrap Core CSS -->
     
@@ -143,12 +143,12 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>1386.安排电影院座位</h1>
+                    <h1>1202.交换字符串中的元素</h1>
                     
                     <span class="meta">
                          作者 Kawhi
                         <span>
-                          日期 2021-01-20
+                          日期 2021-01-21
                          </span>
                     </span>
                     <div class="tags text-center">
@@ -163,7 +163,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            1386.安排电影院座位
+            1202.交换字符串中的元素
         </span>
     </div>
 </header>
@@ -174,10 +174,10 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><img src="%E6%8D%95%E8%8E%B7.PNG"></p>
-<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>本题分析出座位的安排方法不难，首先看能不能坐两边，如果不能，看能不能坐中间，勉强算得上贪心的题目，但是难点在于处理时间和空间复杂度，由于n的大小达到了10^9，只能开哈希表，同时，在遍历的时候，n与reversedSeats的大小相差较大，可以最后处理没有占位的排。</p>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">int maxNumberOfFamilies(int n, vector&lt;vector&lt;int&gt;&gt;&amp; reservedSeats) &#123;</span><br><span class="line">         unordered_map&lt;int,unordered_set&lt;int&gt;&gt;seat(10010);</span><br><span class="line">        for(int i&#x3D;0;i&lt;reservedSeats.size();++i)</span><br><span class="line">        &#123;</span><br><span class="line">            seat[reservedSeats[i][0]].insert(reservedSeats[i][1]);</span><br><span class="line">        &#125;</span><br><span class="line">        int ans&#x3D;0;</span><br><span class="line">        for(auto it&#x3D;seat.begin();it!&#x3D;seat.end();++it)</span><br><span class="line">        &#123;</span><br><span class="line">            int i&#x3D;(*it).first;</span><br><span class="line">                int flag1&#x3D;0;</span><br><span class="line">                if(seat[i].count(2)&#x3D;&#x3D;0&amp;&amp;seat[i].count(3)&#x3D;&#x3D;0&amp;&amp;seat[i].count(4)&#x3D;&#x3D;0&amp;&amp;seat[i].count(5)&#x3D;&#x3D;0)&#x2F;&#x2F;看能不能左左边</span><br><span class="line">                &#123;</span><br><span class="line">                    ++flag1;</span><br><span class="line">                &#125;</span><br><span class="line">                if(seat[i].count(6)&#x3D;&#x3D;0&amp;&amp;seat[i].count(7)&#x3D;&#x3D;0&amp;&amp;seat[i].count(8)&#x3D;&#x3D;0&amp;&amp;seat[i].count(9)&#x3D;&#x3D;0)&#x2F;&#x2F;看能不能坐右边</span><br><span class="line">                    ++flag1;</span><br><span class="line">                if(flag1&#x3D;&#x3D;0&amp;&amp;seat[i].count(4)&#x3D;&#x3D;0&amp;&amp;seat[i].count(5)&#x3D;&#x3D;0&amp;&amp;seat[i].count(6)&#x3D;&#x3D;0&amp;&amp;seat[i].count(7)&#x3D;&#x3D;0)&#x2F;&#x2F;看能不能左中间</span><br><span class="line">                    ++flag1;</span><br><span class="line">                ans+&#x3D;flag1;</span><br><span class="line">        &#125;</span><br><span class="line">        return ans+(n-seat.size())*2;&#x2F;&#x2F;最后处理空排</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>时间与空间复杂度的处理要多想想。</p>
+                <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p><img src="%E6%8D%95%E8%8E%B7.PNG"></p>
+<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>本题与1722类似，都是采用并查集将可以交换的下标合并为一个并查集，但是这一题需要得出的结果是最小字典序的，本题中需要采用一点点的技巧来降低复杂度。对于每一个父亲下标，我们保存以它为父亲的所有字符，然后对字符从大到小进行排序，接着对字符串进行遍历，再到相应的父亲节点所拥有的字符的末尾取出一个字符，注意这个字符的字典序只可能小于等于当前的字符，最后弹出取出的字符即可。</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;int&gt;father;</span><br><span class="line">string smallestStringWithSwaps(string s, vector&lt;vector&lt;int&gt;&gt;&amp; pairs) &#123;</span><br><span class="line">    father.resize(s.size());</span><br><span class="line">    for(int i&#x3D;0;i&lt;father.size();++i)</span><br><span class="line">    &#123;</span><br><span class="line">        father[i]&#x3D;i;</span><br><span class="line">    &#125;</span><br><span class="line">    for(int i&#x3D;0;i&lt;pairs.size();++i)</span><br><span class="line">    &#123;</span><br><span class="line">        unionfunc(pairs[i][0],pairs[i][1]);</span><br><span class="line">    &#125;</span><br><span class="line">    unordered_map&lt;int,vector&lt;char&gt;&gt;mp;</span><br><span class="line">    for(int i&#x3D;0;i&lt;s.size();++i)</span><br><span class="line">    &#123;</span><br><span class="line">        int x&#x3D;findfather(i);</span><br><span class="line">        mp[x].push_back(s[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    for(auto&amp; [x,y]:mp)</span><br><span class="line">    &#123;</span><br><span class="line">        sort(y.begin(),y.end(),greater&lt;int&gt;());</span><br><span class="line">    &#125;</span><br><span class="line">    for(int i&#x3D;0;i&lt;s.size();++i)</span><br><span class="line">    &#123;</span><br><span class="line">        int x&#x3D;findfather(i);</span><br><span class="line">        s[i]&#x3D;mp[x].back();</span><br><span class="line">        mp[x].pop_back();</span><br><span class="line">    &#125;</span><br><span class="line">    return s;</span><br><span class="line">&#125;</span><br><span class="line">int findfather(int x)</span><br><span class="line">&#123;</span><br><span class="line">    int temp&#x3D;x;</span><br><span class="line">    while(temp!&#x3D;father[temp])</span><br><span class="line">    &#123;</span><br><span class="line">        temp&#x3D;father[temp];</span><br><span class="line">    &#125;</span><br><span class="line">    while(x!&#x3D;father[x])</span><br><span class="line">    &#123;</span><br><span class="line">        int now&#x3D;father[x];</span><br><span class="line">        father[x]&#x3D;temp;</span><br><span class="line">        x&#x3D;now;</span><br><span class="line">    &#125;</span><br><span class="line">    return temp;</span><br><span class="line">&#125;</span><br><span class="line">void unionfunc(int x,int y)</span><br><span class="line">&#123;</span><br><span class="line">    int xx&#x3D;findfather(x),yy&#x3D;findfather(y);</span><br><span class="line">    if(xx&lt;yy)</span><br><span class="line">    &#123;</span><br><span class="line">        father[yy]&#x3D;xx;</span><br><span class="line">    &#125;</span><br><span class="line">    else if(xx&gt;yy)</span><br><span class="line">    &#123;</span><br><span class="line">        father[xx]&#x3D;yy;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>本题的需要对并查集较为熟悉才能较快地想出解题方法，但同时也要对时间复杂度的问题进行思考。</p>
 
                 <hr>
                 
@@ -185,14 +185,14 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/2021/01/16/2021/01/21/1489-找到最小生成树的关键边和伪关键边/" data-toggle="tooltip" data-placement="top"
-                           title="1489.找到最小生成树的关键边和伪关键边">&larr; Previous Post</a>
+                        <a href="/2021/01/16/2021/01/21/1171-从链表中删去总和值为零的连续节点/" data-toggle="tooltip" data-placement="top"
+                           title="1171.从链表中删去总和值为零的连续节点">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/2021/01/16/2021/01/20/1262-可被三整除的最大和/" data-toggle="tooltip" data-placement="top"
-                           title="1262.可被三整除的最大和">Next Post &rarr;</a>
+                        <a href="/2021/01/16/2021/01/21/1489-找到最小生成树的关键边和伪关键边/" data-toggle="tooltip" data-placement="top"
+                           title="1489.找到最小生成树的关键边和伪关键边">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -211,7 +211,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE"><span class="toc-text">题目</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%86%E6%9E%90"><span class="toc-text">分析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="toc-text">代码</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-text">总结</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%86%E6%9E%90"><span class="toc-text">分析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="toc-text">代码</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-text">总结</span></a></li></ol>
                 </div>
             </div>
         </div>
