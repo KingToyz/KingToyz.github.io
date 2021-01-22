@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        1171.从链表中删去总和值为零的连续节点｜undefined
+        968.监控二叉树｜undefined
         
     </title>
 
-    <link rel="canonical" href="https://github.com/KingToyz/KingToyz.github.io/2021/01/16/2021/01/16/2021/01/21/1171-从链表中删去总和值为零的连续节点/">
+    <link rel="canonical" href="https://github.com/KingToyz/KingToyz.github.io/2021/01/16/2021/01/16/2021/01/22/968-监控二叉树/">
 
     <!-- Bootstrap Core CSS -->
     
@@ -143,12 +143,12 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>1171.从链表中删去总和值为零的连续节点</h1>
+                    <h1>968.监控二叉树</h1>
                     
                     <span class="meta">
                          作者 Kawhi
                         <span>
-                          日期 2021-01-21
+                          日期 2021-01-22
                          </span>
                     </span>
                     <div class="tags text-center">
@@ -163,7 +163,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            1171.从链表中删去总和值为零的连续节点
+            968.监控二叉树
         </span>
     </div>
 </header>
@@ -175,24 +175,19 @@
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
                 <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p><img src="%E6%8D%95%E8%8E%B7.PNG"></p>
-<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>本题需要采用递归处理每一个节点开头的和，同时，如果出现了和为0的连续节点，需要从头开始递归。</p>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">ListNode* removeZeroSumSublists(ListNode* head) &#123;</span><br><span class="line">        if(!head)</span><br><span class="line">            return head;</span><br><span class="line">        int now&#x3D;0;</span><br><span class="line">        ListNode* x&#x3D;head;</span><br><span class="line">        while(head)</span><br><span class="line">        &#123;</span><br><span class="line">            now+&#x3D;head-&gt;val;</span><br><span class="line">            head&#x3D;head-&gt;next;</span><br><span class="line">            if(now&#x3D;&#x3D;0)</span><br><span class="line">            &#123;</span><br><span class="line">                return removeZeroSumSublists(head);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        x-&gt;next&#x3D;removeZeroSumSublists(x-&gt;next);</span><br><span class="line">        return x;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>做题不能烦躁，要理清思路，否则很多题都做不出。</p>
+<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>本题是较难的树的题目，本题的难点在于如何去决定最优的做法，本题主题是动态规划，但是我更觉得是一题贪心的题目，对于每个节点，我们只有不得不放的时候才决定放一个，由于一个摄像头可以监控儿子与父亲，我们不妨这样思考：在儿子的儿子先处理好后，再自己的处理，因为儿子的儿子的处理是与自己的处理是无关的，那么我们就可以采用后序遍历的做法，对儿子节点处理后，得到儿子的情况后，再去处理自己，那么，一个节点就可以有三种状态：1、自己没有摄像头覆盖 2、自己有摄像头 3、自己有摄像头覆盖，但摄像头是儿子的。由于儿子的情况已经处理好，那么儿子就只能是2和3，而自己现在是1，当儿子都是3的时候，那么自己就要加上摄像头，自己的状态变为2，当儿子有状态2的时候，自己变为状态3。最后把状态返回即可，注意空节点的处理，空节点没有摄像头，所以是状态3，和头节点的处理。</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int ans&#x3D;0;</span><br><span class="line">    int minCameraCover(TreeNode* root) &#123;</span><br><span class="line">        if(!root)</span><br><span class="line">            return 0;</span><br><span class="line">        int x&#x3D;func(root,0);</span><br><span class="line">        if(x&#x3D;&#x3D;0)</span><br><span class="line">            ++ans;</span><br><span class="line">        return ans;</span><br><span class="line">    &#125;</span><br><span class="line">    int func(TreeNode* now)</span><br><span class="line">    &#123;</span><br><span class="line">        if(!now)</span><br><span class="line">            return 1;</span><br><span class="line">        int x&#x3D;func(now-&gt;left),y&#x3D;func(now-&gt;right);</span><br><span class="line">        if(x&#x3D;&#x3D;0||y&#x3D;&#x3D;0)</span><br><span class="line">        &#123;</span><br><span class="line">            ++ans;</span><br><span class="line">            return 2;</span><br><span class="line">        &#125;</span><br><span class="line">        else if(x&#x3D;&#x3D;1&amp;&amp;y&#x3D;&#x3D;1)</span><br><span class="line">        &#123;</span><br><span class="line">            return 0;</span><br><span class="line">        &#125;</span><br><span class="line">        else</span><br><span class="line">            return 1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>本题的解决需要多思考。</p>
 
                 <hr>
                 
 
                 <ul class="pager">
                     
-                    <li class="previous">
-                        <a href="/2021/01/16/2021/01/22/1206-设计跳表/" data-toggle="tooltip" data-placement="top"
-                           title="1206.设计跳表">&larr; Previous Post</a>
-                    </li>
-                    
                     
                     <li class="next">
-                        <a href="/2021/01/16/2021/01/21/1202-交换字符串中的元素/" data-toggle="tooltip" data-placement="top"
-                           title="1202.交换字符串中的元素">Next Post &rarr;</a>
+                        <a href="/2021/01/16/2021/01/22/1203-项目管理/" data-toggle="tooltip" data-placement="top"
+                           title="1203.项目管理">Next Post &rarr;</a>
                     </li>
                     
                 </ul>

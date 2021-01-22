@@ -151,6 +151,82 @@
 
 <div class="post-preview "
      style="background-image: url('')">
+    <a href="/2021/01/16/2021/01/19/1722-执行交换操作后的最小汉明距离/">
+        <h2 class="post-title">
+            1722.执行交换操作后的最小汉明距离
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-19
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                题解
+分析本题主要考察的是对交换操作的理解，由于可以交换任意次，意味着有直接或者间接联系的两方能够相互交换，可以利用这个特点建立并查集，之后建立哈希表记录元素在source的位置，最后遍历target判断目标与源的位置是否在同一个并查集，若存在则汉明距离减一，同时在哈希表中进行删除和插入即可。
+..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+
+<div class="post-preview "
+     style="background-image: url('')">
+    <a href="/2021/01/16/2021/01/19/回文链表/">
+        <h2 class="post-title">
+            回文链表
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-19
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                题目描述
+分析本题需要在O(1)的空间复杂度和O(n)的时间复杂度解决问题，可以先将后半部分处理，将其反转即可。
+注意链表长度为奇数和偶数时候的处理的不同。
+代码1234567891011121314151617181920212223242526272829303132333435363738..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+
+<div class="post-preview "
+     style="background-image: url('')">
+    <a href="/2021/01/16/2021/01/18/搜索旋转数组/">
+        <h2 class="post-title">
+            搜索旋转数组
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-18
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                题目一描述
+分析本题是二分搜索的进阶版，首先序列被分为了左右两半，我们需要判断落在哪一边的时候需要先判断mid的位置，详情见代码。
+代码12345678910111213141516171819202122232425262728293031323334int search(vector&lt;..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+
+<div class="post-preview "
+     style="background-image: url('')">
     <a href="/2021/01/16/2021/01/18/面试题03-02栈的最小值/">
         <h2 class="post-title">
             面试题03.02栈的最小值
@@ -324,55 +400,6 @@
 
 
 
-<div class="post-preview "
-     style="background-image: url('')">
-    <a href="/2021/01/16/2021/01/16/Hello/">
-        <h2 class="post-title">
-            LCP 19
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-16
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                —正文—
-题目描述经典的DP题目，考虑ryr三个情况，可以很快想到分三个数组进行DP。
-1vector&lt;vector&lt;int&gt;&gt;dp(leaves.size(),vector&lt;int&gt;(3,1000000));
-初始情况1dp[0][0]&#x3D;leave..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('')">
-    <a href="/2021/01/16/2021/01/16/hello-world/">
-        <h2 class="post-title">
-            Hello World
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-16
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer i..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
 
 <!-- 翻页 pager -->
 
@@ -382,6 +409,10 @@
         <a href="/2021/01/16/archives/">&larr; Newer Posts</a>
     </li>
     
+    
+    <li class="next">
+        <a href="/2021/01/16/archives/page/3/">Older Posts &rarr;</a>
+    </li>
     
 </ul>
 
