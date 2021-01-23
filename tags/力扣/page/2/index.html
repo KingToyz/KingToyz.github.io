@@ -151,6 +151,83 @@
 
 <div class="post-preview "
      style="background-image: url('')">
+    <a href="/2021/01/16/2021/01/20/1262-可被三整除的最大和/">
+        <h2 class="post-title">
+            1262.可被三整除的最大和
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-20
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                题目描述
+分析一开始想这一题的时候，想着余1余2的最大配对和再加上余0的，但是这是不对的，比如2，2，2，1，答案是6，按照上面的想法2和1配对这显然是不对的。本题的正确解法是采用动态规划。
+状态方程1dp[i]表示余数为i的最大和
+转移方程1见代码
+代码12345678910111213141..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+
+<div class="post-preview "
+     style="background-image: url('')">
+    <a href="/2021/01/16/2021/01/19/1712-将数组分为三个子数组的方案数/">
+        <h2 class="post-title">
+            1712.将数组分为三个子数组的方案数
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-19
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                题目描述
+分析本题将数组分为三个部分，即两个边界，我们不妨考虑先遍历第一个边界，找出第二个边界的范围，这里我们很快就能想到二分法。首先我们用一个求和数组temp，左边是第一个不小于第一个部分的下标，即即有temp[i]*2这一边界，右边是最后一个第三部分大于等于第二部分的下标，即有(total-..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+
+<div class="post-preview "
+     style="background-image: url('')">
+    <a href="/2021/01/16/2021/01/19/天数/">
+        <h2 class="post-title">
+            1553.吃掉橘子的最小天数
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-19
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                题目描述
+分析本题是一题关于搜索的题目，可以采用深度优先搜索+剪枝的方法，也可以采用广度优先搜索加剪枝的方法，注意深度优先搜索的时候可以将减1这一过程直接跳过，可以稍微降低复杂度。
+代码深度优先搜索+剪枝，注意要采用哈希表来储存元素，vector会爆内存
+123456789unordered_m..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+
+<div class="post-preview "
+     style="background-image: url('')">
     <a href="/2021/01/16/2021/01/19/1722-执行交换操作后的最小汉明距离/">
         <h2 class="post-title">
             1722.执行交换操作后的最小汉明距离
@@ -315,81 +392,6 @@
             <p>
                 第一题题目描述
 分析本题的主要做法有两种，但这里只介绍一种。由于求得是最大子矩阵，我们不妨先对每一行进行遍历，求出以该行为结尾的各列的最长连续单行矩阵，这很容易求出，只需维护一个二维矩阵，每次遇到‘1’的时候进行更新即可。接着，我们再一次对每一行进行遍历，这一次遍历的目的是为了求出最大的某一个子..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('')">
-    <a href="/2021/01/16/2021/01/17/面试题16-16/">
-        <h2 class="post-title">
-            面试题16.16 部分排序
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-17
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                题目描述
-分析由于数据规模的限制，本题的时间复杂度应为O（n），在本题中，我们需要考虑两个问题，左边界与右边界如何确定，左边界的特点是它比它右边的最小值大，右边界的特点是它比它左边的最大值小，这样题目便迎刃而解。
-代码1234567891011121314151617181920212223ve..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('')">
-    <a href="/2021/01/16/2021/01/16/803-打砖块/">
-        <h2 class="post-title">
-            803.打砖块
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-16
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                题目描述
-分析这是一道难度较大的并查集的题目，关键的点在于建立并查集关系后如何找出答案，并查集可以合并，但是如何拆开并查集是一个问题，而本题使用的方法是一个逆推的过程。
-过程​    首先设两个数组，father和sz分别表示祖先的下标和当i为祖先的时候连通的数量。设立一个数组is,将grid赋..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('')">
-    <a href="/2021/01/16/2021/01/16/面试题08-06/">
-        <h2 class="post-title">
-            面试题 08.06 汉诺塔问题
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-16
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                题目描述
-分析学习C语言时候的递归问题，这里将A，B，C三个盘子分为源，目的地，暂存点，A，B，C哪个是源，目的地，暂存点并不重要，但是要借助变量now，指明操作的次数，并且要注意递归的结束条件
-代码123456789101112131415void hanota(vector&lt;int&g..
             </p>
         </div>
     </a>

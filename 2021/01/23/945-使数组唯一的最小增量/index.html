@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        968.监控二叉树｜undefined
+        945.使数组唯一的最小增量｜undefined
         
     </title>
 
-    <link rel="canonical" href="https://github.com/KingToyz/KingToyz.github.io/2021/01/16/2021/01/16/2021/01/22/968-监控二叉树/">
+    <link rel="canonical" href="https://github.com/KingToyz/KingToyz.github.io/2021/01/16/2021/01/16/2021/01/23/945-使数组唯一的最小增量/">
 
     <!-- Bootstrap Core CSS -->
     
@@ -143,12 +143,12 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>968.监控二叉树</h1>
+                    <h1>945.使数组唯一的最小增量</h1>
                     
                     <span class="meta">
                          作者 Kawhi
                         <span>
-                          日期 2021-01-22
+                          日期 2021-01-23
                          </span>
                     </span>
                     <div class="tags text-center">
@@ -163,7 +163,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            968.监控二叉树
+            945.使数组唯一的最小增量
         </span>
     </div>
 </header>
@@ -175,9 +175,9 @@
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
                 <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p><img src="%E6%8D%95%E8%8E%B7.PNG"></p>
-<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>本题是较难的树的题目，本题的难点在于如何去决定最优的做法，本题主题是动态规划，但是我更觉得是一题贪心的题目，对于每个节点，我们只有不得不放的时候才决定放一个，由于一个摄像头可以监控儿子与父亲，我们不妨这样思考：在儿子的儿子先处理好后，再自己的处理，因为儿子的儿子的处理是与自己的处理是无关的，那么我们就可以采用后序遍历的做法，对儿子节点处理后，得到儿子的情况后，再去处理自己，那么，一个节点就可以有三种状态：1、自己没有摄像头覆盖 2、自己有摄像头 3、自己有摄像头覆盖，但摄像头是儿子的。由于儿子的情况已经处理好，那么儿子就只能是2和3，而自己现在是1，当儿子都是3的时候，那么自己就要加上摄像头，自己的状态变为2，当儿子有状态2的时候，自己变为状态3。最后把状态返回即可，注意空节点的处理，空节点没有摄像头，所以是状态3，和头节点的处理。</p>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int ans&#x3D;0;</span><br><span class="line">    int minCameraCover(TreeNode* root) &#123;</span><br><span class="line">        if(!root)</span><br><span class="line">            return 0;</span><br><span class="line">        int x&#x3D;func(root,0);</span><br><span class="line">        if(x&#x3D;&#x3D;0)</span><br><span class="line">            ++ans;</span><br><span class="line">        return ans;</span><br><span class="line">    &#125;</span><br><span class="line">    int func(TreeNode* now)</span><br><span class="line">    &#123;</span><br><span class="line">        if(!now)</span><br><span class="line">            return 1;</span><br><span class="line">        int x&#x3D;func(now-&gt;left),y&#x3D;func(now-&gt;right);</span><br><span class="line">        if(x&#x3D;&#x3D;0||y&#x3D;&#x3D;0)</span><br><span class="line">        &#123;</span><br><span class="line">            ++ans;</span><br><span class="line">            return 2;</span><br><span class="line">        &#125;</span><br><span class="line">        else if(x&#x3D;&#x3D;1&amp;&amp;y&#x3D;&#x3D;1)</span><br><span class="line">        &#123;</span><br><span class="line">            return 0;</span><br><span class="line">        &#125;</span><br><span class="line">        else</span><br><span class="line">            return 1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>本题的解决需要多思考。</p>
+<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>题目要求数组的值唯一，我们可以这样理解:让每个数都去占一个位置，注意位置的选择只能大于等于本身。那么，我们可以先记录数组中的最大与最小，同时开一个哈希表，记录各个位置上的个数。接着从最小开始遍历，同时维护一个整型now，代表遍历到当前的数时没有位置的个数，来到这个位置后，将移动的次数加上当前的now,同时now放下一个，加上原本在now上的位置个数，接着去遍历。遍历到最大的时候，我们可以直接将now散列，每个位置放一个，移动的次数加上（now+1）*now/2即可。</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int minIncrementForUnique(vector&lt;int&gt;&amp; A) &#123;</span><br><span class="line">        unordered_map&lt;int,int&gt;mp;</span><br><span class="line">        int maxnum&#x3D;0,minnum&#x3D;INT_MAX;</span><br><span class="line">        for(int i&#x3D;0;i&lt;A.size();++i)</span><br><span class="line">        &#123;</span><br><span class="line">            ++mp[A[i]];</span><br><span class="line">            maxnum&#x3D;max(maxnum,A[i]);</span><br><span class="line">            minnum&#x3D;min(minnum,A[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        int now&#x3D;0,res&#x3D;0;</span><br><span class="line">        for(int i&#x3D;minnum;i&lt;&#x3D;maxnum;++i)</span><br><span class="line">        &#123;</span><br><span class="line">        	&#x2F;&#x2F;答案加上当前没有位置的数</span><br><span class="line">            res+&#x3D;now;</span><br><span class="line">            &#x2F;&#x2F;没有位置的数加上这个位置原本的数再减去1</span><br><span class="line">            if(mp.count(i)!&#x3D;0)</span><br><span class="line">                now+&#x3D;mp[i];</span><br><span class="line">            if(now&gt;0)</span><br><span class="line">                --now;</span><br><span class="line">        &#125;</span><br><span class="line">        &#x2F;&#x2F;最后处理大于最大值的位置</span><br><span class="line">        if(now&gt;0)</span><br><span class="line">            res+&#x3D;(now+1)*now&#x2F;2;</span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>较简单的一道题，但是要多思考。</p>
 
                 <hr>
                 
@@ -185,14 +185,14 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/2021/01/16/2021/01/23/947-移除最多的同行或同列的石头/" data-toggle="tooltip" data-placement="top"
-                           title="947.移除最多的同行或同列的石头">&larr; Previous Post</a>
+                        <a href="/2021/01/16/2021/01/23/940-不同的子序列Ⅱ/" data-toggle="tooltip" data-placement="top"
+                           title="940.不同的子序列Ⅱ">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/2021/01/16/2021/01/22/1203-项目管理/" data-toggle="tooltip" data-placement="top"
-                           title="1203.项目管理">Next Post &rarr;</a>
+                        <a href="/2021/01/16/2021/01/23/947-移除最多的同行或同列的石头/" data-toggle="tooltip" data-placement="top"
+                           title="947.移除最多的同行或同列的石头">Next Post &rarr;</a>
                     </li>
                     
                 </ul>

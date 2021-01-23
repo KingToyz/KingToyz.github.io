@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        968.监控二叉树｜undefined
+        940.不同的子序列Ⅱ｜undefined
         
     </title>
 
-    <link rel="canonical" href="https://github.com/KingToyz/KingToyz.github.io/2021/01/16/2021/01/16/2021/01/22/968-监控二叉树/">
+    <link rel="canonical" href="https://github.com/KingToyz/KingToyz.github.io/2021/01/16/2021/01/16/2021/01/23/940-不同的子序列Ⅱ/">
 
     <!-- Bootstrap Core CSS -->
     
@@ -143,12 +143,12 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>968.监控二叉树</h1>
+                    <h1>940.不同的子序列Ⅱ</h1>
                     
                     <span class="meta">
                          作者 Kawhi
                         <span>
-                          日期 2021-01-22
+                          日期 2021-01-23
                          </span>
                     </span>
                     <div class="tags text-center">
@@ -163,7 +163,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            968.监控二叉树
+            940.不同的子序列Ⅱ
         </span>
     </div>
 </header>
@@ -175,24 +175,19 @@
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
                 <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p><img src="%E6%8D%95%E8%8E%B7.PNG"></p>
-<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>本题是较难的树的题目，本题的难点在于如何去决定最优的做法，本题主题是动态规划，但是我更觉得是一题贪心的题目，对于每个节点，我们只有不得不放的时候才决定放一个，由于一个摄像头可以监控儿子与父亲，我们不妨这样思考：在儿子的儿子先处理好后，再自己的处理，因为儿子的儿子的处理是与自己的处理是无关的，那么我们就可以采用后序遍历的做法，对儿子节点处理后，得到儿子的情况后，再去处理自己，那么，一个节点就可以有三种状态：1、自己没有摄像头覆盖 2、自己有摄像头 3、自己有摄像头覆盖，但摄像头是儿子的。由于儿子的情况已经处理好，那么儿子就只能是2和3，而自己现在是1，当儿子都是3的时候，那么自己就要加上摄像头，自己的状态变为2，当儿子有状态2的时候，自己变为状态3。最后把状态返回即可，注意空节点的处理，空节点没有摄像头，所以是状态3，和头节点的处理。</p>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int ans&#x3D;0;</span><br><span class="line">    int minCameraCover(TreeNode* root) &#123;</span><br><span class="line">        if(!root)</span><br><span class="line">            return 0;</span><br><span class="line">        int x&#x3D;func(root,0);</span><br><span class="line">        if(x&#x3D;&#x3D;0)</span><br><span class="line">            ++ans;</span><br><span class="line">        return ans;</span><br><span class="line">    &#125;</span><br><span class="line">    int func(TreeNode* now)</span><br><span class="line">    &#123;</span><br><span class="line">        if(!now)</span><br><span class="line">            return 1;</span><br><span class="line">        int x&#x3D;func(now-&gt;left),y&#x3D;func(now-&gt;right);</span><br><span class="line">        if(x&#x3D;&#x3D;0||y&#x3D;&#x3D;0)</span><br><span class="line">        &#123;</span><br><span class="line">            ++ans;</span><br><span class="line">            return 2;</span><br><span class="line">        &#125;</span><br><span class="line">        else if(x&#x3D;&#x3D;1&amp;&amp;y&#x3D;&#x3D;1)</span><br><span class="line">        &#123;</span><br><span class="line">            return 0;</span><br><span class="line">        &#125;</span><br><span class="line">        else</span><br><span class="line">            return 1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>本题的解决需要多思考。</p>
+<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>本题主要方法有DFS和DP，但是由于数组长度达到了2000，DFS的复杂度比较高，这里主要采用DP的方法。设数组DP,DP[i]表示以S[i-1]为结尾的子串的组合数（注意这里并不是指每个组合都是以S[i-1]结尾，而是这一个子串构成的组合数）。由于重复的字符串的原因，我们需要去重。在没有相同的时候，我们将以前一个字符结尾的数乘上2（原来的和原来的结尾加上当前的字符），有重复元素出现的时候，我们要将重复的减去，而重复的正是以这个字符最后一次出现的位置为结尾的组合数，即上一个字符的随机组合数。最后，我们需要将辅助用的空串减去。转移方程见代码。</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    const int INF&#x3D;1e+9+7;</span><br><span class="line">    int distinctSubseqII(string S) &#123;</span><br><span class="line">        vector&lt;int&gt;dp(S.size()+1);</span><br><span class="line">        vector&lt;int&gt;last(128,-1);</span><br><span class="line">        dp[0]&#x3D;1;</span><br><span class="line">        for(int i&#x3D;1;i&lt;&#x3D;S.size();++i)</span><br><span class="line">        &#123;</span><br><span class="line">            if(last[S[i-1]]&gt;&#x3D;0)</span><br><span class="line">            &#123;</span><br><span class="line">                dp[i]&#x3D;dp[i-1]*2-dp[last[S[i-1]]];</span><br><span class="line">            &#125;</span><br><span class="line">            else</span><br><span class="line">            &#123;</span><br><span class="line">                dp[i]&#x3D;dp[i-1]*2;</span><br><span class="line">            &#125;</span><br><span class="line">            if(dp[i]&lt;0)</span><br><span class="line">                dp[i]+&#x3D;INF;</span><br><span class="line">            dp[i]%&#x3D;INF;</span><br><span class="line">            last[S[i-1]]&#x3D;i-1;</span><br><span class="line">        &#125;</span><br><span class="line">        --dp[S.size()];</span><br><span class="line">        return dp[S.size()];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>这是一道计数型的DP题目，需要保证做到去重和不漏数，这需要一定的技巧和观察能力。</p>
 
                 <hr>
                 
 
                 <ul class="pager">
                     
-                    <li class="previous">
-                        <a href="/2021/01/16/2021/01/23/947-移除最多的同行或同列的石头/" data-toggle="tooltip" data-placement="top"
-                           title="947.移除最多的同行或同列的石头">&larr; Previous Post</a>
-                    </li>
-                    
                     
                     <li class="next">
-                        <a href="/2021/01/16/2021/01/22/1203-项目管理/" data-toggle="tooltip" data-placement="top"
-                           title="1203.项目管理">Next Post &rarr;</a>
+                        <a href="/2021/01/16/2021/01/23/945-使数组唯一的最小增量/" data-toggle="tooltip" data-placement="top"
+                           title="945.使数组唯一的最小增量">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
