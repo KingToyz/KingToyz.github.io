@@ -151,6 +151,79 @@
 
 <div class="post-preview "
      style="background-image: url('')">
+    <a href="/2021/01/16/2021/01/24/877-石子游戏/">
+        <h2 class="post-title">
+            877.石子游戏
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-24
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                题目描述
+分析本题是典型的动态规划的题目。建立DP数组，DP[i] [j]表示的是[i,j]区间下，先手能取得的最大相对分数。注意，这里当i&gt;j的时候，数组的内容是没有意义的。
+​    转移方程为dp[i] [j]=max(piles[i]-dp[i+1] [j],piles[j]-dp..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+
+<div class="post-preview "
+     style="background-image: url('')">
+    <a href="/2021/01/16/2021/01/24/886-可能的二分法/">
+        <h2 class="post-title">
+            886.可能的二分法
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-24
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                题目描述
+分析本题是一道图论题，采用的是染色法。由于只有两种颜色，那么我们在遍历没有被染色的点的时候，任意先指派一个颜色，然后对相连的点进行检查，如果没有染色，则对其染上相反的颜色，如果染上了相同的颜色，那么这种方案就是错误的。我们需要知道，任意染上的一个颜色对于最终的答案是没有影响的（无论它是..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+
+<div class="post-preview "
+     style="background-image: url('')">
+    <a href="/2021/01/16/2021/01/24/887-鸡蛋掉落/">
+        <h2 class="post-title">
+            887.鸡蛋掉落
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-24
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                题目描述
+分析这是一道经典的动态规划的题目。首先需要理解题意，本题需要的是在所有的鸡蛋数之内，找到所有满足条件的楼层。这里采用递归解决的办法，这里递归式dp(x,y)的返回值是y个鸡蛋，x次机会所能覆盖的楼层数。首先，我们考虑递归的终止条件，当鸡蛋数是1时，我们只能决定x+1层楼（为什么要+1?..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+
+<div class="post-preview "
+     style="background-image: url('')">
     <a href="/2021/01/16/2021/01/23/940-不同的子序列Ⅱ/">
         <h2 class="post-title">
             940.不同的子序列Ⅱ
@@ -309,79 +382,6 @@
                 题目描述
 分析本题需要采用递归处理每一个节点开头的和，同时，如果出现了和为0的连续节点，需要从头开始递归。
 代码1234567891011121314151617ListNode* removeZeroSumSublists(ListNode* head) &#123;        if(!h..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('')">
-    <a href="/2021/01/16/2021/01/21/1202-交换字符串中的元素/">
-        <h2 class="post-title">
-            1202.交换字符串中的元素
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-21
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                题目描述
-分析本题与1722类似，都是采用并查集将可以交换的下标合并为一个并查集，但是这一题需要得出的结果是最小字典序的，本题中需要采用一点点的技巧来降低复杂度。对于每一个父亲下标，我们保存以它为父亲的所有字符，然后对字符从大到小进行排序，接着对字符串进行遍历，再到相应的父亲节点所拥有的字符的末..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('')">
-    <a href="/2021/01/16/2021/01/21/1489-找到最小生成树的关键边和伪关键边/">
-        <h2 class="post-title">
-            1489.找到最小生成树的关键边和伪关键边
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-21
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                题目
-分析本题需要理解关键边与伪关键边的区分。首先一条边如果是关键边，删去它后，要么不能形成树，要么最小生成树的边长和与原来的不一样，如果它不是关键边，也不是伪关键边的话，在最小生成树中加入它只会使得边长和变大，那么我们可以先将这条边加入到生成树中，再去运行最小生成树算法，看最后的最小生成树边长..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('')">
-    <a href="/2021/01/16/2021/01/20/1386-安排电影院座位/">
-        <h2 class="post-title">
-            1386.安排电影院座位
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-20
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                题目
-分析本题分析出座位的安排方法不难，首先看能不能坐两边，如果不能，看能不能坐中间，勉强算得上贪心的题目，但是难点在于处理时间和空间复杂度，由于n的大小达到了10^9，只能开哈希表，同时，在遍历的时候，n与reversedSeats的大小相差较大，可以最后处理没有占位的排。
-代码1234567..
             </p>
         </div>
     </a>

@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        940.不同的子序列Ⅱ｜undefined
+        887.鸡蛋掉落｜undefined
         
     </title>
 
-    <link rel="canonical" href="https://github.com/KingToyz/KingToyz.github.io/2021/01/16/2021/01/16/2021/01/23/940-不同的子序列Ⅱ/">
+    <link rel="canonical" href="https://github.com/KingToyz/KingToyz.github.io/2021/01/16/2021/01/16/2021/01/24/887-鸡蛋掉落/">
 
     <!-- Bootstrap Core CSS -->
     
@@ -143,12 +143,12 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>940.不同的子序列Ⅱ</h1>
+                    <h1>887.鸡蛋掉落</h1>
                     
                     <span class="meta">
                          作者 Kawhi
                         <span>
-                          日期 2021-01-23
+                          日期 2021-01-24
                          </span>
                     </span>
                     <div class="tags text-center">
@@ -163,7 +163,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            940.不同的子序列Ⅱ
+            887.鸡蛋掉落
         </span>
     </div>
 </header>
@@ -175,9 +175,9 @@
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
                 <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p><img src="%E6%8D%95%E8%8E%B7.PNG"></p>
-<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>本题主要方法有DFS和DP，但是由于数组长度达到了2000，DFS的复杂度比较高，这里主要采用DP的方法。设数组DP,DP[i]表示以S[i-1]为结尾的子串的组合数（注意这里并不是指每个组合都是以S[i-1]结尾，而是这一个子串构成的组合数）。由于重复的字符串的原因，我们需要去重。在没有相同的时候，我们将以前一个字符结尾的数乘上2（原来的和原来的结尾加上当前的字符），有重复元素出现的时候，我们要将重复的减去，而重复的正是以这个字符最后一次出现的位置为结尾的组合数，即上一个字符的随机组合数。最后，我们需要将辅助用的空串减去。转移方程见代码。</p>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    const int INF&#x3D;1e+9+7;</span><br><span class="line">    int distinctSubseqII(string S) &#123;</span><br><span class="line">        vector&lt;int&gt;dp(S.size()+1);</span><br><span class="line">        vector&lt;int&gt;last(128,-1);</span><br><span class="line">        dp[0]&#x3D;1;</span><br><span class="line">        for(int i&#x3D;1;i&lt;&#x3D;S.size();++i)</span><br><span class="line">        &#123;</span><br><span class="line">            if(last[S[i-1]]&gt;&#x3D;0)</span><br><span class="line">            &#123;</span><br><span class="line">                dp[i]&#x3D;dp[i-1]*2-dp[last[S[i-1]]];</span><br><span class="line">            &#125;</span><br><span class="line">            else</span><br><span class="line">            &#123;</span><br><span class="line">                dp[i]&#x3D;dp[i-1]*2;</span><br><span class="line">            &#125;</span><br><span class="line">            if(dp[i]&lt;0)</span><br><span class="line">                dp[i]+&#x3D;INF;</span><br><span class="line">            dp[i]%&#x3D;INF;</span><br><span class="line">            last[S[i-1]]&#x3D;i-1;</span><br><span class="line">        &#125;</span><br><span class="line">        --dp[S.size()];</span><br><span class="line">        return dp[S.size()];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>这是一道计数型的DP题目，需要保证做到去重和不漏数，这需要一定的技巧和观察能力。</p>
+<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>这是一道经典的动态规划的题目。首先需要理解题意，本题需要的是在所有的鸡蛋数之内，找到所有满足条件的楼层。这里采用递归解决的办法，这里递归式dp(x,y)的返回值是y个鸡蛋，x次机会所能覆盖的楼层数。首先，我们考虑递归的终止条件，当鸡蛋数是1时，我们只能决定x+1层楼（为什么要+1?因为F是可以从0开始的，直接从1楼扔即可），当机会数是1时，我们只能决定2层即x+1(0与 1)。再考虑一般的情况，扔一个蛋的时候，蛋碎或者不碎，机会都减少一次，那么这样，返回的是dp(x-1,y)（蛋没碎）+dp(x-1,y-1)（蛋碎了）我们不断增大x，当返回值大于N的时候（注意这里有N+1个层数）,得到的X即为答案。</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int superEggDrop(int K, int N) &#123;</span><br><span class="line">        int m&#x3D;1;</span><br><span class="line">        while(dp(m,K)&lt;&#x3D;N)</span><br><span class="line">        &#123;</span><br><span class="line">            ++m;</span><br><span class="line">        &#125;</span><br><span class="line">        return m;</span><br><span class="line">    &#125;</span><br><span class="line">    int dp(int x,int y)</span><br><span class="line">    &#123;</span><br><span class="line">        if(x&#x3D;&#x3D;1||y&#x3D;&#x3D;1)</span><br><span class="line">            return x+1;</span><br><span class="line">        return dp(x-1,y-1)+dp(x-1,y);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>本题较难，我现在还是有点懵逼。</p>
 
                 <hr>
                 
@@ -185,14 +185,14 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/2021/01/16/2021/01/24/887-鸡蛋掉落/" data-toggle="tooltip" data-placement="top"
-                           title="887.鸡蛋掉落">&larr; Previous Post</a>
+                        <a href="/2021/01/16/2021/01/24/886-可能的二分法/" data-toggle="tooltip" data-placement="top"
+                           title="886.可能的二分法">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/2021/01/16/2021/01/23/945-使数组唯一的最小增量/" data-toggle="tooltip" data-placement="top"
-                           title="945.使数组唯一的最小增量">Next Post &rarr;</a>
+                        <a href="/2021/01/16/2021/01/23/940-不同的子序列Ⅱ/" data-toggle="tooltip" data-placement="top"
+                           title="940.不同的子序列Ⅱ">Next Post &rarr;</a>
                     </li>
                     
                 </ul>

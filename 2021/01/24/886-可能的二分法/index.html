@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        940.不同的子序列Ⅱ｜undefined
+        886.可能的二分法｜undefined
         
     </title>
 
-    <link rel="canonical" href="https://github.com/KingToyz/KingToyz.github.io/2021/01/16/2021/01/16/2021/01/23/940-不同的子序列Ⅱ/">
+    <link rel="canonical" href="https://github.com/KingToyz/KingToyz.github.io/2021/01/16/2021/01/16/2021/01/24/886-可能的二分法/">
 
     <!-- Bootstrap Core CSS -->
     
@@ -143,12 +143,12 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>940.不同的子序列Ⅱ</h1>
+                    <h1>886.可能的二分法</h1>
                     
                     <span class="meta">
                          作者 Kawhi
                         <span>
-                          日期 2021-01-23
+                          日期 2021-01-24
                          </span>
                     </span>
                     <div class="tags text-center">
@@ -163,7 +163,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            940.不同的子序列Ⅱ
+            886.可能的二分法
         </span>
     </div>
 </header>
@@ -175,9 +175,9 @@
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
                 <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p><img src="%E6%8D%95%E8%8E%B7.PNG"></p>
-<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>本题主要方法有DFS和DP，但是由于数组长度达到了2000，DFS的复杂度比较高，这里主要采用DP的方法。设数组DP,DP[i]表示以S[i-1]为结尾的子串的组合数（注意这里并不是指每个组合都是以S[i-1]结尾，而是这一个子串构成的组合数）。由于重复的字符串的原因，我们需要去重。在没有相同的时候，我们将以前一个字符结尾的数乘上2（原来的和原来的结尾加上当前的字符），有重复元素出现的时候，我们要将重复的减去，而重复的正是以这个字符最后一次出现的位置为结尾的组合数，即上一个字符的随机组合数。最后，我们需要将辅助用的空串减去。转移方程见代码。</p>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    const int INF&#x3D;1e+9+7;</span><br><span class="line">    int distinctSubseqII(string S) &#123;</span><br><span class="line">        vector&lt;int&gt;dp(S.size()+1);</span><br><span class="line">        vector&lt;int&gt;last(128,-1);</span><br><span class="line">        dp[0]&#x3D;1;</span><br><span class="line">        for(int i&#x3D;1;i&lt;&#x3D;S.size();++i)</span><br><span class="line">        &#123;</span><br><span class="line">            if(last[S[i-1]]&gt;&#x3D;0)</span><br><span class="line">            &#123;</span><br><span class="line">                dp[i]&#x3D;dp[i-1]*2-dp[last[S[i-1]]];</span><br><span class="line">            &#125;</span><br><span class="line">            else</span><br><span class="line">            &#123;</span><br><span class="line">                dp[i]&#x3D;dp[i-1]*2;</span><br><span class="line">            &#125;</span><br><span class="line">            if(dp[i]&lt;0)</span><br><span class="line">                dp[i]+&#x3D;INF;</span><br><span class="line">            dp[i]%&#x3D;INF;</span><br><span class="line">            last[S[i-1]]&#x3D;i-1;</span><br><span class="line">        &#125;</span><br><span class="line">        --dp[S.size()];</span><br><span class="line">        return dp[S.size()];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>这是一道计数型的DP题目，需要保证做到去重和不漏数，这需要一定的技巧和观察能力。</p>
+<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>本题是一道图论题，采用的是染色法。由于只有两种颜色，那么我们在遍历没有被染色的点的时候，任意先指派一个颜色，然后对相连的点进行检查，如果没有染色，则对其染上相反的颜色，如果染上了相同的颜色，那么这种方案就是错误的。我们需要知道，任意染上的一个颜色对于最终的答案是没有影响的（无论它是只由一个连通图组成还是有多个连通图组成）。</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    vector&lt;int&gt;isv;</span><br><span class="line">    unordered_map&lt;int,unordered_set&lt;int&gt;&gt;mp;</span><br><span class="line">    bool possibleBipartition(int N, vector&lt;vector&lt;int&gt;&gt;&amp; dislikes) &#123;</span><br><span class="line">        for(int i&#x3D;0;i&lt;dislikes.size();++i)</span><br><span class="line">        &#123;</span><br><span class="line">            mp[dislikes[i][0]].insert(dislikes[i][1]);</span><br><span class="line">            mp[dislikes[i][1]].insert(dislikes[i][0]);</span><br><span class="line">        &#125;</span><br><span class="line">        isv.resize(N+1,0);</span><br><span class="line">        for(int i&#x3D;0;i&lt;N;++i)</span><br><span class="line">        &#123;</span><br><span class="line">            if(isv[i]!&#x3D;0)</span><br><span class="line">                continue;</span><br><span class="line">            if(!dfs(i,-1))</span><br><span class="line">                return false;</span><br><span class="line">        &#125;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line">    bool dfs(int x,int color)</span><br><span class="line">    &#123;</span><br><span class="line">        isv[x]&#x3D;color;</span><br><span class="line">        for(auto it&#x3D;mp[x].begin();it!&#x3D;mp[x].end();++it)</span><br><span class="line">        &#123;</span><br><span class="line">            int t&#x3D;*it;</span><br><span class="line">            if(isv[t]&#x3D;&#x3D;0)</span><br><span class="line">            &#123;</span><br><span class="line">                if(!dfs(*it,-color))</span><br><span class="line">                    return false;</span><br><span class="line">            &#125;</span><br><span class="line">            else if(isv[*it]&#x3D;&#x3D;color)</span><br><span class="line">                return false;</span><br><span class="line">        &#125;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>本题主要采用的是DFS算法，需要注意的是染色的任意性与唯一性问题。</p>
 
                 <hr>
                 
@@ -185,14 +185,14 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/2021/01/16/2021/01/24/887-鸡蛋掉落/" data-toggle="tooltip" data-placement="top"
-                           title="887.鸡蛋掉落">&larr; Previous Post</a>
+                        <a href="/2021/01/16/2021/01/24/877-石子游戏/" data-toggle="tooltip" data-placement="top"
+                           title="877.石子游戏">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/2021/01/16/2021/01/23/945-使数组唯一的最小增量/" data-toggle="tooltip" data-placement="top"
-                           title="945.使数组唯一的最小增量">Next Post &rarr;</a>
+                        <a href="/2021/01/16/2021/01/24/887-鸡蛋掉落/" data-toggle="tooltip" data-placement="top"
+                           title="887.鸡蛋掉落">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
