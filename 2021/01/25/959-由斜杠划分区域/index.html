@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        877.石子游戏｜undefined
+        959.由斜杠划分区域｜undefined
         
     </title>
 
-    <link rel="canonical" href="https://github.com/KingToyz/KingToyz.github.io/2021/01/16/2021/01/16/2021/01/24/877-石子游戏/">
+    <link rel="canonical" href="https://github.com/KingToyz/KingToyz.github.io/2021/01/16/2021/01/16/2021/01/25/959-由斜杠划分区域/">
 
     <!-- Bootstrap Core CSS -->
     
@@ -143,12 +143,12 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>877.石子游戏</h1>
+                    <h1>959.由斜杠划分区域</h1>
                     
                     <span class="meta">
                          作者 Kawhi
                         <span>
-                          日期 2021-01-24
+                          日期 2021-01-25
                          </span>
                     </span>
                     <div class="tags text-center">
@@ -163,7 +163,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            877.石子游戏
+            959.由斜杠划分区域
         </span>
     </div>
 </header>
@@ -175,10 +175,18 @@
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
                 <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p><img src="%E6%8D%95%E8%8E%B7.PNG"></p>
-<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>本题是典型的动态规划的题目。建立DP数组，DP[i] [j]表示的是[i,j]区间下，先手能取得的最大相对分数。注意，这里当i&gt;j的时候，数组的内容是没有意义的。</p>
-<p>​    转移方程为dp[i] [j]=max(piles[i]-dp[i+1] [j],piles[j]-dp[i] [j-1])，注意初始条件下，dp[i] [i]为piles[i]即只能取一次。这里需要解决的是遍历的顺序的问题，由于dp[i] [j]取决于dp[i+1] [j]与dp[i] [j-1]故遍历的时候，我们不妨将区间从小到大开始展开，先取右边的边界为最小（最大不行，因为j-1的没有决定），或者取左边的边界为最大（最小不行，因为i+1还没有决定）。然后将另一个边界从近到远进行遍历即可。</p>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    bool stoneGame(vector&lt;int&gt;&amp; piles) &#123;</span><br><span class="line">        vector&lt;vector&lt;int&gt;&gt;dp(piles.size(),vector&lt;int&gt;(piles.size()));</span><br><span class="line">        for(int i&#x3D;0;i&lt;piles.size();++i)</span><br><span class="line">        &#123;</span><br><span class="line">            dp[i][i]&#x3D;piles[i];</span><br><span class="line">        &#125;</span><br><span class="line">        &#x2F;&#x2F;dp[i][j]是指[i,j]区间内先手能拿下的相对分数,i&gt;j时的数组内容没有意义</span><br><span class="line">        for(int j&#x3D;1;j&lt;piles.size();++j)</span><br><span class="line">        &#123;</span><br><span class="line">            for(int i&#x3D;j-1;i&gt;&#x3D;0;--i)</span><br><span class="line">            &#123;</span><br><span class="line">                dp[i][j]&#x3D;max(piles[i]-dp[i+1][j],piles[j]-dp[i][j-1]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return dp[0][piles.size()-1]&gt;0;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>动态规划做得不够熟练。</p>
+<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>本题的题目较难理解，首先给出的grid数组表示的是N*N的方格中是有\还是//还是没有东西，题目要求的是给出划分的区域。那么对于每一个格子，可以先给他分成四块。</p>
+<p><img src="%E6%8D%95%E8%8E%B71.PNG">  </p>
+<p>随后，我们遍历网格中的每一个方块。对于当前方块而言，考虑其位置上的字符：</p>
+<p>​    如果为空格，则该方块的四个小三角形应当同属于同一区域，因此在它们对应的顶点之间各连接一条边；</p>
+<p>​    如果为字符 /，则方块被切分成两个部分，此时在 00 号和 33 号小三角形之间连接一条边，并在 11 号和 22 号小三角形之间连接一条边；</p>
+<p>​    如果为字符 \，则方块被切分成两个部分，此时在 00 号和 11 号小三角形之间连接一条边，并在 22 号和 33 号小三角形之间连接一条边；</p>
+<p>此外，我们还需要考虑两个相邻方块的三角形之间的连接关系：</p>
+<p>​    一个方块中最下方的三角形（22 号），必然和下面的方块（如果存在）中最上方的三角形（00 号）连通；</p>
+<p>​    一个方块中最右方的三角形（11 号），必然和右边的方块（如果存在）中最左方的三角形（33 号）连通。</p>
+<p>在上面的规则下，我们创建并查集进行合并，最后求出并查集的个数即可。这里要注意的是我们起初创建的数组的大小应该为n * n * 4;</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    vector&lt;int&gt;father;</span><br><span class="line">    int regionsBySlashes(vector&lt;string&gt;&amp; grid) &#123;</span><br><span class="line">        int n&#x3D;grid.size();</span><br><span class="line">        father.resize(n*n*4);</span><br><span class="line">        for(int i&#x3D;0;i&lt;father.size();++i)</span><br><span class="line">        &#123;</span><br><span class="line">            father[i]&#x3D;i;</span><br><span class="line">        &#125;</span><br><span class="line">        for(int i&#x3D;0;i&lt;n;++i)</span><br><span class="line">        &#123;</span><br><span class="line">            for(int j&#x3D;0;j&lt;n;++j)</span><br><span class="line">            &#123;</span><br><span class="line">                int idx&#x3D;i*n+j;</span><br><span class="line">                if(i&lt;n-1)</span><br><span class="line">                &#123;</span><br><span class="line">                    unionfunc(idx*4+2,idx*4+n*4);</span><br><span class="line">                &#125;</span><br><span class="line">                if(j&lt;n-1)</span><br><span class="line">                &#123;</span><br><span class="line">                    unionfunc(idx*4+1,idx*4+4+3);</span><br><span class="line">                &#125;</span><br><span class="line">                if(grid[i][j]&#x3D;&#x3D;&#39;&#x2F;&#39;)</span><br><span class="line">                &#123;</span><br><span class="line">                    unionfunc(idx*4+1,idx*4+2);</span><br><span class="line">                    unionfunc(idx*4+3,idx*4);</span><br><span class="line">                &#125;</span><br><span class="line">                else if(grid[i][j]&#x3D;&#x3D;&#39;\\&#39;)</span><br><span class="line">                &#123;</span><br><span class="line">                    unionfunc(idx*4+1,idx*4);</span><br><span class="line">                    unionfunc(idx*4+2,idx*4+3);</span><br><span class="line">                &#125;</span><br><span class="line">                else</span><br><span class="line">                &#123;</span><br><span class="line">                    unionfunc(idx*4,idx*4+1);</span><br><span class="line">                    unionfunc(idx*4+1,idx*4+2);</span><br><span class="line">                    unionfunc(idx*4+2,idx*4+3);</span><br><span class="line">                    unionfunc(idx*4+3,idx*4);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        int ans&#x3D;0;</span><br><span class="line">        for(int i&#x3D;0;i&lt;father.size();++i)</span><br><span class="line">        &#123;</span><br><span class="line">            if(findfather(i)&#x3D;&#x3D;i)</span><br><span class="line">                ++ans;</span><br><span class="line">        &#125;</span><br><span class="line">        return ans;</span><br><span class="line">    &#125;</span><br><span class="line">    int findfather(int x)</span><br><span class="line">    &#123;</span><br><span class="line">        int temp&#x3D;x;</span><br><span class="line">        while(father[temp]!&#x3D;temp)</span><br><span class="line">        &#123;</span><br><span class="line">            temp&#x3D;father[temp];</span><br><span class="line">        &#125;</span><br><span class="line">        while(x!&#x3D;father[x])</span><br><span class="line">        &#123;</span><br><span class="line">            int now&#x3D;father[x];</span><br><span class="line">            father[x]&#x3D;temp;</span><br><span class="line">            x&#x3D;now;</span><br><span class="line">        &#125;</span><br><span class="line">        return temp;</span><br><span class="line">    &#125;</span><br><span class="line">    void unionfunc(int x,int y)</span><br><span class="line">    &#123;</span><br><span class="line">        int xx&#x3D;findfather(x),yy&#x3D;findfather(y);</span><br><span class="line">        if(xx&lt;yy)</span><br><span class="line">        &#123;</span><br><span class="line">            father[yy]&#x3D;xx;</span><br><span class="line">        &#125;</span><br><span class="line">        else if(xx&gt;yy)</span><br><span class="line">        &#123;</span><br><span class="line">            father[xx]&#x3D;yy;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>本题的难度在于读懂题目。</p>
 
                 <hr>
                 
@@ -186,14 +194,14 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/2021/01/16/2021/01/25/959-由斜杠划分区域/" data-toggle="tooltip" data-placement="top"
-                           title="959.由斜杠划分区域">&larr; Previous Post</a>
+                        <a href="/2021/01/16/2021/01/26/834-树中距离之和/" data-toggle="tooltip" data-placement="top"
+                           title="834.树中距离之和">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/2021/01/16/2021/01/24/886-可能的二分法/" data-toggle="tooltip" data-placement="top"
-                           title="886.可能的二分法">Next Post &rarr;</a>
+                        <a href="/2021/01/16/2021/01/24/877-石子游戏/" data-toggle="tooltip" data-placement="top"
+                           title="877.石子游戏">Next Post &rarr;</a>
                     </li>
                     
                 </ul>

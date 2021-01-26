@@ -22,7 +22,7 @@
         
     </title>
 
-    <link rel="canonical" href="https://github.com/KingToyz/KingToyz.github.io/2021/01/16/2021/01/16/archives/2021/01/page/2/">
+    <link rel="canonical" href="https://github.com/KingToyz/KingToyz.github.io/2021/01/16/2021/01/16/page/4/">
 
     <!-- Bootstrap Core CSS -->
     
@@ -50,7 +50,7 @@
 <body ontouchstart="" class="animated fadeIn">
 <!-- Navigation -->
 <nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "false" data-istags="false
-" data-ishome = "false" >
+" data-ishome = "true" >
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header page-scroll">
@@ -123,6 +123,126 @@
 <!-- Main Content -->
 
 
+<style>
+
+    .custom-haojen-container .post-preview:nth-of-type(1),
+    .custom-haojen-container .post-preview-poetry:nth-of-type(1) {
+        text-align: center;
+        background-repeat: no-repeat;
+        border-radius: 3px;
+        background-size: cover;
+        padding: 0;
+        height: 300px;
+        display: table;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.16);
+    }
+
+    /*去掉诗歌的背景图片*/
+    .custom-haojen-container .post-preview-poetry:nth-of-type(1) {
+        background-image: none !important;
+        background-color: rgba(255, 248, 220, 0.5);
+    }
+
+    .custom-haojen-container .post-preview:nth-child(1) h2,
+    .custom-haojen-container .post-preview:nth-child(1) .post-meta,
+    .custom-haojen-container .post-preview:nth-child(1) .post-subtitle {
+        text-shadow: 0 0 40px rgba(0, 0, 0, 1);
+        letter-spacing: 1px;
+        color: #fff;
+        margin-top: 0;
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+
+    .custom-haojen-container .post-preview:nth-child(1) .post-meta {
+        font-size: .9em;
+        font-weight: 300;
+        margin-top: 0;
+    }
+
+    .custom-haojen-container .post-preview-poetry:nth-child(1) .post-subtitle {
+        letter-spacing: 6px;
+        font-size: 18px;
+        font-family: unset;
+        font-weight: 400;
+        color: rgba(0, 0, 0, .75)
+    }
+
+    /*不显示摘要*/
+    .custom-haojen-container .post-preview:nth-child(1) .post-content-preview {
+        display: none
+    }
+
+    /*只第一个显示背景图片*/
+    .custom-haojen-container .post-preview:not(:nth-child(1)) {
+        background-image: none !important;
+    }
+
+    /*第一个分界线去掉*/
+    .custom-haojen-container hr:nth-of-type(1) {
+        display: none;
+    }
+
+    /*主题*/
+    .custom-haojen-container .post-preview:nth-of-type(1) > a {
+        display: table-cell;
+        vertical-align: middle;
+    }
+
+    /*诗词标题*/
+    .custom-haojen-container .post-preview-poetry:nth-child(1) h2 {
+        font-size: 35px;
+        font-family: STKaiti;
+        color: rgba(0, 0, 0, .8);
+    }
+
+    .custom-haojen-container .post-preview-poetry:nth-of-type(1) .post-meta {
+        color: #0e2231;
+    }
+
+    @media (max-width: 768px) {
+        .custom-haojen-container .post-preview:nth-child(1) {
+            height: 240px;
+        }
+
+        .custom-haojen-container .post-preview-poetry:nth-child(1) h2 {
+            font-size: 28px !important;
+            margin-top: 0;
+        }
+
+        .custom-haojen-container .post-preview:nth-child(1) .post-subtitle {
+            font-size: 18px;
+            font-weight: 400;
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        .custom-haojen-container .post-preview:nth-of-type(1) > a {
+            padding: 20px
+        }
+    }
+
+    /*手机屏幕*/
+    @media (max-width: 400px) {
+        .custom-haojen-container .post-preview:nth-child(1) {
+            height: 195px;
+        }
+
+        .custom-haojen-container .post-preview-poetry:nth-child(1) h2 {
+            font-size: 20px !important;
+        }
+
+        .custom-haojen-container .post-preview:nth-child(1) .post-subtitle {
+            font-size: 16px;
+        }
+
+        .custom-haojen-container .post-preview:nth-child(1) a {
+            padding: 30px 20px;
+        }
+    }
+</style>
+
 <!-- Page Header -->
 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 visible-xs-block visible-sm-block">
     <div class="row">
@@ -151,18 +271,19 @@
 
 <div class="post-preview "
      style="background-image: url('')">
-    <a href="/2021/01/16/2021/01/23/945-使数组唯一的最小增量/">
+    <a href="/2021/01/16/2021/01/16/803-打砖块/">
         <h2 class="post-title">
-            945.使数组唯一的最小增量
+            803.打砖块
         </h2>
         <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-23
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-16
         </p>
         
         <div class="post-content-preview">
             <p>
                 题目描述
-分析题目要求数组的值唯一，我们可以这样理解:让每个数都去占一个位置，注意位置的选择只能大于等于本身。那么，我们可以先记录数组中的最大与最小，同时开一个哈希表，记录各个位置上的个数。接着从最小开始遍历，同时维护一个整型now，代表遍历到当前的数时没有位置的个数，来到这个位置后，将移动的次..
+分析这是一道难度较大的并查集的题目，关键的点在于建立并查集关系后如何找出答案，并查集可以合并，但是如何拆开并查集是一个问题，而本题使用的方法是一个逆推的过程。
+过程​    首先设两个数组，father和sz分别表示祖先的下标和当i为祖先的时候连通的数量。设立一个数组is,将grid赋..
             </p>
         </div>
     </a>
@@ -175,19 +296,19 @@
 
 <div class="post-preview "
      style="background-image: url('')">
-    <a href="/2021/01/16/2021/01/23/947-移除最多的同行或同列的石头/">
+    <a href="/2021/01/16/2021/01/16/面试题08-06/">
         <h2 class="post-title">
-            947.移除最多的同行或同列的石头
+            面试题 08.06 汉诺塔问题
         </h2>
         <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-23
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-16
         </p>
         
         <div class="post-content-preview">
             <p>
                 题目描述
-分析本题需要注意到具有相同行或者相同列的石头是同一组，对于同一组的石头，我们只需留下一个，这样便可构造并查集，具有同行或者同列关系的归入一个并查集，最后答案便是总的石头的个数减去并查集的个数。
-代码12345678910111213141516171819202122232425262..
+分析学习C语言时候的递归问题，这里将A，B，C三个盘子分为源，目的地，暂存点，A，B，C哪个是源，目的地，暂存点并不重要，但是要借助变量now，指明操作的次数，并且要注意递归的结束条件
+代码123456789101112131415void hanota(vector&lt;int&g..
             </p>
         </div>
     </a>
@@ -200,18 +321,20 @@
 
 <div class="post-preview "
      style="background-image: url('')">
-    <a href="/2021/01/16/2021/01/22/968-监控二叉树/">
+    <a href="/2021/01/16/2021/01/16/Hello/">
         <h2 class="post-title">
-            968.监控二叉树
+            LCP 19
         </h2>
         <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-22
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-16
         </p>
         
         <div class="post-content-preview">
             <p>
-                题目描述
-分析本题是较难的树的题目，本题的难点在于如何去决定最优的做法，本题主题是动态规划，但是我更觉得是一题贪心的题目，对于每个节点，我们只有不得不放的时候才决定放一个，由于一个摄像头可以监控儿子与父亲，我们不妨这样思考：在儿子的儿子先处理好后，再自己的处理，因为儿子的儿子的处理是与自己的处理..
+                —正文—
+题目描述经典的DP题目，考虑ryr三个情况，可以很快想到分三个数组进行DP。
+1vector&lt;vector&lt;int&gt;&gt;dp(leaves.size(),vector&lt;int&gt;(3,1000000));
+初始情况1dp[0][0]&#x3D;leave..
             </p>
         </div>
     </a>
@@ -224,167 +347,17 @@
 
 <div class="post-preview "
      style="background-image: url('')">
-    <a href="/2021/01/16/2021/01/22/1203-项目管理/">
+    <a href="/2021/01/16/2021/01/16/hello-world/">
         <h2 class="post-title">
-            1203.项目管理
+            Hello World
         </h2>
         <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-22
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-16
         </p>
         
         <div class="post-content-preview">
             <p>
-                题目描述
-分析本题是图论题，由于所有组需要分开进行，所有项目可能会有相应的前驱，本题采用的是拓扑排序的做法。在本题中，由于出现-1这一个问题，但是它可以加入任何的组，所有我们可以假设他们属于新的不同的组，它们插入安排是任意的，即它们和其它组没有前驱与后继的关系。接着，我们对项目和组分成两个图进行..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('')">
-    <a href="/2021/01/16/2021/01/22/1206-设计跳表/">
-        <h2 class="post-title">
-            1206.设计跳表
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-22
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                题目描述
-分析本题需要先清楚redis里面一个数据结构——跳表的概念，跳表是几个level构成的的链表，每个节点有两根指针，其中down指针指向下一个level，next指针指向右边的节点，同时，指向下个level的节点的值即down指针所指的节点的值必定等于当前的节点值，右边的节点即next指..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('')">
-    <a href="/2021/01/16/2021/01/21/1171-从链表中删去总和值为零的连续节点/">
-        <h2 class="post-title">
-            1171.从链表中删去总和值为零的连续节点
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-21
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                题目描述
-分析本题需要采用递归处理每一个节点开头的和，同时，如果出现了和为0的连续节点，需要从头开始递归。
-代码1234567891011121314151617ListNode* removeZeroSumSublists(ListNode* head) &#123;        if(!h..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('')">
-    <a href="/2021/01/16/2021/01/21/1202-交换字符串中的元素/">
-        <h2 class="post-title">
-            1202.交换字符串中的元素
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-21
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                题目描述
-分析本题与1722类似，都是采用并查集将可以交换的下标合并为一个并查集，但是这一题需要得出的结果是最小字典序的，本题中需要采用一点点的技巧来降低复杂度。对于每一个父亲下标，我们保存以它为父亲的所有字符，然后对字符从大到小进行排序，接着对字符串进行遍历，再到相应的父亲节点所拥有的字符的末..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('')">
-    <a href="/2021/01/16/2021/01/21/1489-找到最小生成树的关键边和伪关键边/">
-        <h2 class="post-title">
-            1489.找到最小生成树的关键边和伪关键边
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-21
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                题目
-分析本题需要理解关键边与伪关键边的区分。首先一条边如果是关键边，删去它后，要么不能形成树，要么最小生成树的边长和与原来的不一样，如果它不是关键边，也不是伪关键边的话，在最小生成树中加入它只会使得边长和变大，那么我们可以先将这条边加入到生成树中，再去运行最小生成树算法，看最后的最小生成树边长..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('')">
-    <a href="/2021/01/16/2021/01/20/1386-安排电影院座位/">
-        <h2 class="post-title">
-            1386.安排电影院座位
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-20
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                题目
-分析本题分析出座位的安排方法不难，首先看能不能坐两边，如果不能，看能不能坐中间，勉强算得上贪心的题目，但是难点在于处理时间和空间复杂度，由于n的大小达到了10^9，只能开哈希表，同时，在遍历的时候，n与reversedSeats的大小相差较大，可以最后处理没有占位的排。
-代码1234567..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('')">
-    <a href="/2021/01/16/2021/01/20/1262-可被三整除的最大和/">
-        <h2 class="post-title">
-            1262.可被三整除的最大和
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-20
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                题目描述
-分析一开始想这一题的时候，想着余1余2的最大配对和再加上余0的，但是这是不对的，比如2，2，2，1，答案是6，按照上面的想法2和1配对这显然是不对的。本题的正确解法是采用动态规划。
-状态方程1dp[i]表示余数为i的最大和
-转移方程1见代码
-代码12345678910111213141..
+                Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer i..
             </p>
         </div>
     </a>
@@ -401,13 +374,9 @@
 <ul class="pager">
     
     <li class="previous">
-        <a href="/2021/01/16/archives/2021/01/">&larr; Newer Posts</a>
+        <a href="/2021/01/16/page/3/">&larr; Newer Posts</a>
     </li>
     
-    
-    <li class="next">
-        <a href="/2021/01/16/archives/2021/01/page/3/">Older Posts &rarr;</a>
-    </li>
     
 </ul>
 

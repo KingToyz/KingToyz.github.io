@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        877.石子游戏｜undefined
+        834.树中距离之和｜undefined
         
     </title>
 
-    <link rel="canonical" href="https://github.com/KingToyz/KingToyz.github.io/2021/01/16/2021/01/16/2021/01/24/877-石子游戏/">
+    <link rel="canonical" href="https://github.com/KingToyz/KingToyz.github.io/2021/01/16/2021/01/16/2021/01/26/834-树中距离之和/">
 
     <!-- Bootstrap Core CSS -->
     
@@ -143,12 +143,12 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>877.石子游戏</h1>
+                    <h1>834.树中距离之和</h1>
                     
                     <span class="meta">
                          作者 Kawhi
                         <span>
-                          日期 2021-01-24
+                          日期 2021-01-26
                          </span>
                     </span>
                     <div class="tags text-center">
@@ -163,7 +163,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            877.石子游戏
+            834.树中距离之和
         </span>
     </div>
 </header>
@@ -175,10 +175,11 @@
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
                 <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p><img src="%E6%8D%95%E8%8E%B7.PNG"></p>
-<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>本题是典型的动态规划的题目。建立DP数组，DP[i] [j]表示的是[i,j]区间下，先手能取得的最大相对分数。注意，这里当i&gt;j的时候，数组的内容是没有意义的。</p>
-<p>​    转移方程为dp[i] [j]=max(piles[i]-dp[i+1] [j],piles[j]-dp[i] [j-1])，注意初始条件下，dp[i] [i]为piles[i]即只能取一次。这里需要解决的是遍历的顺序的问题，由于dp[i] [j]取决于dp[i+1] [j]与dp[i] [j-1]故遍历的时候，我们不妨将区间从小到大开始展开，先取右边的边界为最小（最大不行，因为j-1的没有决定），或者取左边的边界为最大（最小不行，因为i+1还没有决定）。然后将另一个边界从近到远进行遍历即可。</p>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    bool stoneGame(vector&lt;int&gt;&amp; piles) &#123;</span><br><span class="line">        vector&lt;vector&lt;int&gt;&gt;dp(piles.size(),vector&lt;int&gt;(piles.size()));</span><br><span class="line">        for(int i&#x3D;0;i&lt;piles.size();++i)</span><br><span class="line">        &#123;</span><br><span class="line">            dp[i][i]&#x3D;piles[i];</span><br><span class="line">        &#125;</span><br><span class="line">        &#x2F;&#x2F;dp[i][j]是指[i,j]区间内先手能拿下的相对分数,i&gt;j时的数组内容没有意义</span><br><span class="line">        for(int j&#x3D;1;j&lt;piles.size();++j)</span><br><span class="line">        &#123;</span><br><span class="line">            for(int i&#x3D;j-1;i&gt;&#x3D;0;--i)</span><br><span class="line">            &#123;</span><br><span class="line">                dp[i][j]&#x3D;max(piles[i]-dp[i+1][j],piles[j]-dp[i][j-1]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return dp[0][piles.size()-1]&gt;0;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>动态规划做得不够熟练。</p>
+<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>本题是难度较大的DFS题目。需要分为两步DFS来求，同时需要设立两个数组。第一个数组cnt表示的是该节点的子树的节点的个数及其本身，第二个数组res在第一步中表示的该节点到其所有子树的距离。在第一次dfs前，先将数组cnt初始化为1表示自己本身。</p>
+<p>​    在第一次dfs中，先递归求出子树的cnt与res,当前节点的cnt等于所有子树的cnt之和，res等于所有子树的res之和加上所有的子树的个数即cnt之和。第一次dfs结束后，由dfs的定义可以知道，根节点的res就是所需要求得res。</p>
+<p>​    在第二次dfs中，由于父节点的res已经求出，所以求遍历到当前的子节点的res,等于的是父节点的res减去上当前子树的节点数，加上除当前子树的节点外的其它节点的和。</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    vector&lt;int&gt;res,cnt;</span><br><span class="line">    int n;</span><br><span class="line">    unordered_map&lt;int,vector&lt;int&gt;&gt;mp;</span><br><span class="line">    vector&lt;int&gt; sumOfDistancesInTree(int N, vector&lt;vector&lt;int&gt;&gt;&amp; edges) &#123;</span><br><span class="line">        for(int i&#x3D;0;i&lt;edges.size();++i)</span><br><span class="line">        &#123;</span><br><span class="line">            mp[edges[i][0]].push_back(edges[i][1]);</span><br><span class="line">            mp[edges[i][1]].push_back(edges[i][0]);            </span><br><span class="line">        &#125;</span><br><span class="line">        n&#x3D;N;</span><br><span class="line">        res.resize(N);</span><br><span class="line">        cnt.resize(N,1);</span><br><span class="line">        dfs(0,-1);</span><br><span class="line">        dfs2(0,-1);</span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">    void dfs(int now,int before)</span><br><span class="line">    &#123;</span><br><span class="line">        for(int i&#x3D;0;i&lt;mp[now].size();++i)</span><br><span class="line">        &#123;</span><br><span class="line">            if(mp[now][i]!&#x3D;before)</span><br><span class="line">            &#123;</span><br><span class="line">                dfs(mp[now][i],now);</span><br><span class="line">                cnt[now]+&#x3D;cnt[mp[now][i]];</span><br><span class="line">                res[now]+&#x3D;res[mp[now][i]]+cnt[mp[now][i]];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    void dfs2(int now,int before)</span><br><span class="line">    &#123;</span><br><span class="line">        for(int i&#x3D;0;i&lt;mp[now].size();++i)</span><br><span class="line">        &#123;</span><br><span class="line">            if(mp[now][i]!&#x3D;before)</span><br><span class="line">            &#123;</span><br><span class="line">                res[mp[now][i]]&#x3D;res[now]+n-cnt[mp[now][i]]*2;</span><br><span class="line">                dfs2(mp[now][i],now);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>本题的难度较大，需要想到的是节点间的距离和是有关系的，先求出了一个res再求其子节点的res的公式是什么。res[child]=res[father]-cnt[child]+n-cnt[child]，而cnt[child]是指由child节点作为根节点组成的子树的节点和，只需要另外一次dfs求出即可。</p>
 
                 <hr>
                 
@@ -186,14 +187,14 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/2021/01/16/2021/01/25/959-由斜杠划分区域/" data-toggle="tooltip" data-placement="top"
-                           title="959.由斜杠划分区域">&larr; Previous Post</a>
+                        <a href="/2021/01/16/2021/01/26/4-寻找两个正序数组中的中位数/" data-toggle="tooltip" data-placement="top"
+                           title="4.寻找两个正序数组中的中位数">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/2021/01/16/2021/01/24/886-可能的二分法/" data-toggle="tooltip" data-placement="top"
-                           title="886.可能的二分法">Next Post &rarr;</a>
+                        <a href="/2021/01/16/2021/01/25/959-由斜杠划分区域/" data-toggle="tooltip" data-placement="top"
+                           title="959.由斜杠划分区域">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
