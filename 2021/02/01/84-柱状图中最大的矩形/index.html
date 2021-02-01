@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword" content="">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
+    <link rel="alternate" type="application/atom+xml" title="Kawhi" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        84.柱状图中最大的矩形 85.最大矩阵｜undefined
+        
+    </title>
+
+    <link rel="canonical" href="https://github.com/KingToyz/KingToyz.github.io/2021/01/16/2021/01/16/2021/02/01/84-柱状图中最大的矩形/">
+
+    <!-- Bootstrap Core CSS -->
+    
+<link rel="stylesheet" href="/2021/01/16/css/bootstrap.min.css">
+
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/2021/01/16/css/blog-style.css">
+
+
+    <!-- Pygments Github CSS -->
+    
+<link rel="stylesheet" href="/2021/01/16/css/syntax.css">
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/2021/01/16/">
+                <span class="brand-logo">
+                    Kawhi
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/2021/01/16/">Home</a>
+                    </li>
+					
+                    
+					
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>84.柱状图中最大的矩形 85.最大矩阵</h1>
+                    
+                    <span class="meta">
+                         作者 Kawhi
+                        <span>
+                          日期 2021-02-01
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/2021/01/16/tags/#力扣"
+                           title="力扣">力扣</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            84.柱状图中最大的矩形 85.最大矩阵
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h1 id="第一题题目描述"><a href="#第一题题目描述" class="headerlink" title="第一题题目描述"></a>第一题题目描述</h1><p><img src="%E6%8D%95%E8%8E%B7.PNG"></p>
+<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>本题可以采用暴力的解法，时间复杂度O（n^2）的解法，但是可以采用单调栈的解法。开辟一个单调栈，栈里面从栈底到栈顶的元素放进的是单调增加的高度，这里存放的是heights数组中的下标。注意理解一个概念，栈里面的元素是尚未决定的最大矩形的左边起始下标，那么什么时候可以决定呢？就是当右边出现比它要小的高度的时候，这样便可以使用单调栈解决问题。注意下标的处理问题，当遇到比栈顶小的时候，栈顶的元素为起点的最大矩阵面积可以确定，那就是，次栈顶的元素到遍历到的元素的前一个位置为宽，栈顶元素为高围成的矩阵。注意为什么我们不用当前栈顶的元素到遍历到的元素的前一位为宽。考虑情况[4,2,0,3,4,2,5]，当来到最后的时候遍历到最后的元素0的时候，我们出栈，栈中的元素有0，2，5。注意到，出2的时候，我们取得是3，4，2，5这个范围，那么3，就是栈顶得前一位，5就是当前遍历得前一位，即0到2中间的范围必须要进来，因为这些数不在0到2的范围，他必定由于大于2而弹出了，如果有在这个范围的，那么必定是在栈中的。</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int largestRectangleArea(vector&lt;int&gt;&amp; heights) &#123;</span><br><span class="line">        heights.push_back(0);</span><br><span class="line">        stack&lt;int&gt;st;</span><br><span class="line">        int res&#x3D;0;</span><br><span class="line">        for(int i&#x3D;0;i&lt;heights.size();++i)</span><br><span class="line">        &#123;</span><br><span class="line">            while(!st.empty()&amp;&amp;heights[st.top()]&gt;heights[i])</span><br><span class="line">            &#123;</span><br><span class="line">                int top&#x3D;st.top();</span><br><span class="line">                st.pop();</span><br><span class="line">                res&#x3D;max(res,(st.empty()?i:i-st.top()-1)*heights[top]);</span><br><span class="line">            &#125;</span><br><span class="line">            st.push(i);</span><br><span class="line">        &#125;</span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h1 id="第二题题目描述"><a href="#第二题题目描述" class="headerlink" title="第二题题目描述"></a>第二题题目描述</h1><p><img src="%E6%8D%95%E8%8E%B71.PNG"></p>
+<h1 id="分析-1"><a href="#分析-1" class="headerlink" title="分析"></a>分析</h1><p>与上一题非常的相似，唯一的区别在于要对每一行分别进行单调栈算法处理。</p>
+<h1 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int maximalRectangle(vector&lt;vector&lt;char&gt;&gt;&amp; matrix) &#123;</span><br><span class="line">        if(matrix.size()&#x3D;&#x3D;0||matrix[0].size()&#x3D;&#x3D;0)</span><br><span class="line">            return 0;</span><br><span class="line">        vector&lt;vector&lt;int&gt;&gt;up(matrix.size(),vector&lt;int&gt;(matrix[0].size()));</span><br><span class="line">        for(int i&#x3D;0;i&lt;matrix.size();++i)</span><br><span class="line">        &#123;</span><br><span class="line">            for(int j&#x3D;0;j&lt;matrix[i].size();++j)</span><br><span class="line">            &#123;</span><br><span class="line">                if(matrix[i][j]&#x3D;&#x3D;&#39;1&#39;)</span><br><span class="line">                &#123;</span><br><span class="line">                    if(i&gt;0)</span><br><span class="line">                    &#123;</span><br><span class="line">                        up[i][j]+&#x3D;up[i-1][j]+1;</span><br><span class="line">                    &#125;</span><br><span class="line">                    else</span><br><span class="line">                        up[i][j]&#x3D;1;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        int res&#x3D;0;</span><br><span class="line">        for(int i&#x3D;0;i&lt;matrix.size();++i)</span><br><span class="line">        &#123;</span><br><span class="line">            stack&lt;int&gt;st;</span><br><span class="line">            up[i].push_back(0);</span><br><span class="line">            for(int j&#x3D;0;j&lt;up[i].size();++j)</span><br><span class="line">            &#123;</span><br><span class="line">                while(!st.empty()&amp;&amp;up[i][st.top()]&gt;up[i][j])</span><br><span class="line">                &#123;</span><br><span class="line">                    int top&#x3D;st.top();</span><br><span class="line">                    st.pop();</span><br><span class="line">                    res&#x3D;max(res,(st.empty()?j:j-st.top()-1)*up[i][top]);</span><br><span class="line">                &#125;</span><br><span class="line">                st.push(j);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>单调栈的题目还要多做几次。</p>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2021/01/16/2021/02/01/316-去除重复的字母/" data-toggle="tooltip" data-placement="top"
+                           title="316.去除重复的字母">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2021/01/16/2021/01/31/76-最小覆盖子串/" data-toggle="tooltip" data-placement="top"
+                           title="76.最小覆盖子串">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E9%A2%98%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="toc-text">第一题题目描述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%86%E6%9E%90"><span class="toc-text">分析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="toc-text">代码</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E9%A2%98%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="toc-text">第二题题目描述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%86%E6%9E%90-1"><span class="toc-text">分析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81-1"><span class="toc-text">代码</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-text">总结</span></a></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Kawhi 2021
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a target="_blank" rel="noopener" href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+
+<script src="/2021/01/16/js/jquery.min.js"></script>
+
+
+<!-- Bootstrap Core JavaScript -->
+
+<script src="/2021/01/16/js/bootstrap.min.js"></script>
+
+
+<!-- Custom Theme JavaScript -->
+
+<script src="/2021/01/16/js/blog.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://github.com/KingToyz/KingToyz.github.io/2021/01/16/2021/01/16/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="">
+</body>
+
+</html>

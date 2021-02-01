@@ -151,6 +151,58 @@
 
 <div class="post-preview "
      style="background-image: url('')">
+    <a href="/2021/01/16/2021/01/25/959-由斜杠划分区域/">
+        <h2 class="post-title">
+            959.由斜杠划分区域
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-25
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                题目描述
+分析本题的题目较难理解，首先给出的grid数组表示的是N*N的方格中是有\还是//还是没有东西，题目要求的是给出划分的区域。那么对于每一个格子，可以先给他分成四块。
+  
+随后，我们遍历网格中的每一个方块。对于当前方块而言，考虑其位置上的字符：
+​    如果为空格，则该方块的四个小三..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+
+<div class="post-preview "
+     style="background-image: url('')">
+    <a href="/2021/01/16/2021/01/24/877-石子游戏/">
+        <h2 class="post-title">
+            877.石子游戏
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-24
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                题目描述
+分析本题是典型的动态规划的题目。建立DP数组，DP[i] [j]表示的是[i,j]区间下，先手能取得的最大相对分数。注意，这里当i&gt;j的时候，数组的内容是没有意义的。
+​    转移方程为dp[i] [j]=max(piles[i]-dp[i+1] [j],piles[j]-dp..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+
+<div class="post-preview "
+     style="background-image: url('')">
     <a href="/2021/01/16/2021/01/24/886-可能的二分法/">
         <h2 class="post-title">
             886.可能的二分法
@@ -332,55 +384,6 @@
             <p>
                 题目描述
 分析本题需要先清楚redis里面一个数据结构——跳表的概念，跳表是几个level构成的的链表，每个节点有两根指针，其中down指针指向下一个level，next指针指向右边的节点，同时，指向下个level的节点的值即down指针所指的节点的值必定等于当前的节点值，右边的节点即next指..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('')">
-    <a href="/2021/01/16/2021/01/21/1171-从链表中删去总和值为零的连续节点/">
-        <h2 class="post-title">
-            1171.从链表中删去总和值为零的连续节点
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-21
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                题目描述
-分析本题需要采用递归处理每一个节点开头的和，同时，如果出现了和为0的连续节点，需要从头开始递归。
-代码1234567891011121314151617ListNode* removeZeroSumSublists(ListNode* head) &#123;        if(!h..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('')">
-    <a href="/2021/01/16/2021/01/21/1202-交换字符串中的元素/">
-        <h2 class="post-title">
-            1202.交换字符串中的元素
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-21
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                题目描述
-分析本题与1722类似，都是采用并查集将可以交换的下标合并为一个并查集，但是这一题需要得出的结果是最小字典序的，本题中需要采用一点点的技巧来降低复杂度。对于每一个父亲下标，我们保存以它为父亲的所有字符，然后对字符从大到小进行排序，接着对字符串进行遍历，再到相应的父亲节点所拥有的字符的末..
             </p>
         </div>
     </a>

@@ -271,6 +271,55 @@
 
 <div class="post-preview "
      style="background-image: url('')">
+    <a href="/2021/01/16/2021/01/28/42-接雨水/">
+        <h2 class="post-title">
+            42.接雨水
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-28
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                题目描述
+分析本题的难度较大。维护两个数组，分别代表左边（包括自己）的最大，右边（包括自己）的最大，由雨水的储存可以知道，在当前台阶上存的雨水必定是左右最大值中较小的那个减去当前的高度。遍历所有的点即可。
+代码1234567891011121314151617181920212223242526..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+
+<div class="post-preview "
+     style="background-image: url('')">
+    <a href="/2021/01/16/2021/01/27/765-情侣牵手/">
+        <h2 class="post-title">
+            765.情侣牵手
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-27
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                题目描述
+分析本题的难度较大。我们先假设存在一个错误环，在错误环内， 所有都能找到自己的匹配，而自己当前的匹配都是错误的，设这个错误环中的对数为K，那么需要交换K-1次才能还原（A1-B1 B2-C1 C2-D1 D2-A2需要交换3次）。那么，我们可以采用并查集的方法，将位于相邻位置的对和正确..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+
+<div class="post-preview "
+     style="background-image: url('')">
     <a href="/2021/01/16/2021/01/27/41-缺失的第一个正数/">
         <h2 class="post-title">
             41.缺失的第一个正数
@@ -454,58 +503,6 @@
                 题目描述
 分析本题是难度较大的DFS题目。需要分为两步DFS来求，同时需要设立两个数组。第一个数组cnt表示的是该节点的子树的节点的个数及其本身，第二个数组res在第一步中表示的该节点到其所有子树的距离。在第一次dfs前，先将数组cnt初始化为1表示自己本身。
 ​    在第一次dfs中，先递归..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('')">
-    <a href="/2021/01/16/2021/01/25/959-由斜杠划分区域/">
-        <h2 class="post-title">
-            959.由斜杠划分区域
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-25
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                题目描述
-分析本题的题目较难理解，首先给出的grid数组表示的是N*N的方格中是有\还是//还是没有东西，题目要求的是给出划分的区域。那么对于每一个格子，可以先给他分成四块。
-  
-随后，我们遍历网格中的每一个方块。对于当前方块而言，考虑其位置上的字符：
-​    如果为空格，则该方块的四个小三..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('')">
-    <a href="/2021/01/16/2021/01/24/877-石子游戏/">
-        <h2 class="post-title">
-            877.石子游戏
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-24
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                题目描述
-分析本题是典型的动态规划的题目。建立DP数组，DP[i] [j]表示的是[i,j]区间下，先手能取得的最大相对分数。注意，这里当i&gt;j的时候，数组的内容是没有意义的。
-​    转移方程为dp[i] [j]=max(piles[i]-dp[i+1] [j],piles[j]-dp..
             </p>
         </div>
     </a>
