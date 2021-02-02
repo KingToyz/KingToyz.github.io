@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        316.去除重复的字母｜undefined
+        424.替换后的最长重复字符｜undefined
         
     </title>
 
-    <link rel="canonical" href="https://github.com/KingToyz/KingToyz.github.io/2021/01/16/2021/01/16/2021/02/01/316-去除重复的字母/">
+    <link rel="canonical" href="https://github.com/KingToyz/KingToyz.github.io/2021/01/16/2021/01/16/2021/02/02/424-替换后的最长重复字符/">
 
     <!-- Bootstrap Core CSS -->
     
@@ -143,12 +143,12 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>316.去除重复的字母</h1>
+                    <h1>424.替换后的最长重复字符</h1>
                     
                     <span class="meta">
                          作者 Kawhi
                         <span>
-                          日期 2021-02-01
+                          日期 2021-02-02
                          </span>
                     </span>
                     <div class="tags text-center">
@@ -163,7 +163,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            316.去除重复的字母
+            424.替换后的最长重复字符
         </span>
     </div>
 </header>
@@ -175,9 +175,10 @@
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
                 <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p><img src="%E6%8D%95%E8%8E%B7.PNG"></p>
-<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>本题又是一道单调栈的题。注意到需要返回的是最小字典序的字符串，那么我们需要维护一个单调栈、一个字符计数数组和一个集合。单调栈保存的是当前的最优结果，计数数组保存的是没有遍历到剩下的字符个数，集合记录的是单调栈中所有的字符。首先，单调栈出栈的条件是，当前遍历到的字符比栈顶的小，同时剩下的字符串中存在栈顶的元素。注意，如果栈中存在当前遍历到的字符的时候，不用进行处理，直接跳到下一个即可。</p>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    string removeDuplicateLetters(string s) &#123;</span><br><span class="line">        stack&lt;int&gt;st;</span><br><span class="line">        vector&lt;int&gt;total(26);</span><br><span class="line">        for(int i&#x3D;0;i&lt;s.size();++i)</span><br><span class="line">        &#123;</span><br><span class="line">            ++total[s[i]-&#39;a&#39;];</span><br><span class="line">        &#125;</span><br><span class="line">        unordered_set&lt;char&gt;s1;</span><br><span class="line">        for(int i&#x3D;0;i&lt;s.size();++i)</span><br><span class="line">        &#123;</span><br><span class="line">            if(s1.count(s[i])!&#x3D;0)</span><br><span class="line">            &#123;</span><br><span class="line">                --total[s[i]-&#39;a&#39;];</span><br><span class="line">                continue;</span><br><span class="line">            &#125;</span><br><span class="line">            while(!st.empty()&amp;&amp;s[st.top()]&gt;s[i]&amp;&amp;total[s[st.top()]-&#39;a&#39;]&gt;0)</span><br><span class="line">            &#123;</span><br><span class="line">                s1.erase(s[st.top()]);</span><br><span class="line">                st.pop();</span><br><span class="line">                </span><br><span class="line">            &#125;</span><br><span class="line">            st.push(i);</span><br><span class="line">            --total[s[i]-&#39;a&#39;];</span><br><span class="line">            s1.insert(s[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        string res;</span><br><span class="line">        while(!st.empty())</span><br><span class="line">        &#123;</span><br><span class="line">            res+&#x3D;s[st.top()];</span><br><span class="line">            st.pop();</span><br><span class="line">        &#125;</span><br><span class="line">        reverse(res.begin(),res.end());</span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>这一道单调栈题目难度不高，比较容易看出单调问题（字典序最小）。</p>
+<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>本题采用滑动窗口的做法。首先，窗口的大小是当前的重复字符串的大小，当右指针向右移动扩大窗口的时候，我们需要判断是否还满足重复字符串的要求，如果不满足，我们将左指针左移缩小窗口，直到窗口内的字符串满足要求即可。注意记录答案。另外，我们可以优化这种做法，我们记录一个窗口内的最多字符的值maxcnt，如果右移后，得到的值比maxcnt大，那么更改maxcnt，同时判断maxcnt是否满足i-left+1-maxcnt&gt;=k，因为答案必定是由maxcnt数量的字符为主字符，所以当左移的时候，我们不必更新maxcnt，因为减少maxcnt不能获得更大的答案。代码见下</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;第一种方案</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int characterReplacement(string s, int k) &#123;</span><br><span class="line">        if(k&gt;&#x3D;s.size()-1)</span><br><span class="line">            return s.size();</span><br><span class="line">        if(s.size()&#x3D;&#x3D;0)</span><br><span class="line">            return 0;</span><br><span class="line">        int left&#x3D;0,right&#x3D;k;</span><br><span class="line">        vector&lt;int&gt;total(26);</span><br><span class="line">        for(int i&#x3D;left;i&lt;&#x3D;right;++i)</span><br><span class="line">        &#123;</span><br><span class="line">            ++total[s[i]-&#39;A&#39;];</span><br><span class="line">        &#125;</span><br><span class="line">        int res&#x3D;0;</span><br><span class="line">        while(right&lt;s.size()-1)</span><br><span class="line">        &#123;</span><br><span class="line">            res&#x3D;max(res,right-left+1);</span><br><span class="line">            bool flag&#x3D;false;</span><br><span class="line">            ++total[s[++right]-&#39;A&#39;];</span><br><span class="line">            int min&#x3D;right-left+1-k;</span><br><span class="line">            for(int i&#x3D;0;i&lt;total.size();++i)</span><br><span class="line">            &#123;</span><br><span class="line">                if(total[i]&gt;&#x3D;min)</span><br><span class="line">                &#123;</span><br><span class="line">                    flag&#x3D;true;</span><br><span class="line">                    break;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            if(flag)</span><br><span class="line">                continue;</span><br><span class="line">            else</span><br><span class="line">            &#123;</span><br><span class="line">                while(!flag)</span><br><span class="line">                &#123;</span><br><span class="line">                    --total[s[left++]-&#39;A&#39;];</span><br><span class="line">                    --min;</span><br><span class="line">                    for(int i&#x3D;0;i&lt;total.size();++i)</span><br><span class="line">                    &#123;</span><br><span class="line">                        if(total[i]&gt;&#x3D;min)</span><br><span class="line">                        &#123;</span><br><span class="line">                            flag&#x3D;true;</span><br><span class="line">                            break;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;            </span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        res&#x3D;max(res,right-left+1);</span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;第二种方法</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int characterReplacement(string s, int k) &#123;</span><br><span class="line">        vector&lt;int&gt;total(26);</span><br><span class="line">        int maxcnt&#x3D;0,left&#x3D;0,res&#x3D;0;</span><br><span class="line">        for(int i&#x3D;0;i&lt;s.size();++i)</span><br><span class="line">        &#123;</span><br><span class="line">            ++total[s[i]-&#39;A&#39;];</span><br><span class="line">            maxcnt&#x3D;max(maxcnt,total[s[i]-&#39;A&#39;]);</span><br><span class="line">            while(i-left+1-maxcnt&gt;k)</span><br><span class="line">            &#123;</span><br><span class="line">                --total[s[left++]-&#39;A&#39;];</span><br><span class="line">            &#125;</span><br><span class="line">            res&#x3D;max(res,i-left+1);</span><br><span class="line">        &#125;</span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>不能将题目想得太复杂。</p>
 
                 <hr>
                 
@@ -185,14 +186,14 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/2021/01/16/2021/02/02/424-替换后的最长重复字符/" data-toggle="tooltip" data-placement="top"
-                           title="424.替换后的最长重复字符">&larr; Previous Post</a>
+                        <a href="/2021/01/16/2021/02/02/87-扰乱字符串/" data-toggle="tooltip" data-placement="top"
+                           title="87.扰乱字符串">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/2021/01/16/2021/02/01/84-柱状图中最大的矩形/" data-toggle="tooltip" data-placement="top"
-                           title="84.柱状图中最大的矩形 85.最大矩阵">Next Post &rarr;</a>
+                        <a href="/2021/01/16/2021/02/01/316-去除重复的字母/" data-toggle="tooltip" data-placement="top"
+                           title="316.去除重复的字母">Next Post &rarr;</a>
                     </li>
                     
                 </ul>

@@ -151,6 +151,104 @@
 
 <div class="post-preview "
      style="background-image: url('')">
+    <a href="/2021/01/16/2021/02/02/92-反转链表/">
+        <h2 class="post-title">
+            92.反转链表Ⅱ
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-02-02
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                题目描述
+分析本题要一次扫描完成，首先研究不是一次扫描的方法，先找到反转链表的前一位和后一位，这里为了方便处理，设置了一个dummyhead。接着反转链表，最后把链表接上即可。一次扫描的方案只需要将找前一位、后一位和反转链表三个同时进行即可。注意，空指针的处理问题。
+代码123456789101..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+
+<div class="post-preview "
+     style="background-image: url('')">
+    <a href="/2021/01/16/2021/02/02/90-子集Ⅱ/">
+        <h2 class="post-title">
+            90.子集Ⅱ
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-02-02
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                题目描述
+分析本题也是一道DFS的题目，不断对当前取数的下标进行移动，将遍历到的数存进数组后，接着递归后面的子数组，递归返回后弹出数组的最后一个数，接着遍历下一个数进行递归，注意重复数字的处理即可。
+代码1234567891011121314151617181920212223242526272..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+
+<div class="post-preview "
+     style="background-image: url('')">
+    <a href="/2021/01/16/2021/02/02/87-扰乱字符串/">
+        <h2 class="post-title">
+            87.扰乱字符串
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-02-02
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                题目描述
+分析在本题中，由于字符串的切割位置不限，我们采用DFS的方法，对于每一段比较的字符串，我们遍历分割的位置，然后将其分割后比较，或者分割后交换比较，我们切割之前，首先统计比较的字符串的字符，看看它们的各个字符的个数是否一致和字符串的总长度是否一致，如果不一致，不用切割，直接返回false..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+
+<div class="post-preview "
+     style="background-image: url('')">
+    <a href="/2021/01/16/2021/02/02/424-替换后的最长重复字符/">
+        <h2 class="post-title">
+            424.替换后的最长重复字符
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-02-02
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                题目描述
+分析本题采用滑动窗口的做法。首先，窗口的大小是当前的重复字符串的大小，当右指针向右移动扩大窗口的时候，我们需要判断是否还满足重复字符串的要求，如果不满足，我们将左指针左移缩小窗口，直到窗口内的字符串满足要求即可。注意记录答案。另外，我们可以优化这种做法，我们记录一个窗口内的最多字符的值..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+
+<div class="post-preview "
+     style="background-image: url('')">
     <a href="/2021/01/16/2021/02/01/316-去除重复的字母/">
         <h2 class="post-title">
             316.去除重复的字母

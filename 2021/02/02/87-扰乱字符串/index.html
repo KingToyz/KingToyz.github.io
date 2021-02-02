@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        316.去除重复的字母｜undefined
+        87.扰乱字符串｜undefined
         
     </title>
 
-    <link rel="canonical" href="https://github.com/KingToyz/KingToyz.github.io/2021/01/16/2021/01/16/2021/02/01/316-去除重复的字母/">
+    <link rel="canonical" href="https://github.com/KingToyz/KingToyz.github.io/2021/01/16/2021/01/16/2021/02/02/87-扰乱字符串/">
 
     <!-- Bootstrap Core CSS -->
     
@@ -143,12 +143,12 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>316.去除重复的字母</h1>
+                    <h1>87.扰乱字符串</h1>
                     
                     <span class="meta">
                          作者 Kawhi
                         <span>
-                          日期 2021-02-01
+                          日期 2021-02-02
                          </span>
                     </span>
                     <div class="tags text-center">
@@ -163,7 +163,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            316.去除重复的字母
+            87.扰乱字符串
         </span>
     </div>
 </header>
@@ -175,9 +175,9 @@
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
                 <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p><img src="%E6%8D%95%E8%8E%B7.PNG"></p>
-<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>本题又是一道单调栈的题。注意到需要返回的是最小字典序的字符串，那么我们需要维护一个单调栈、一个字符计数数组和一个集合。单调栈保存的是当前的最优结果，计数数组保存的是没有遍历到剩下的字符个数，集合记录的是单调栈中所有的字符。首先，单调栈出栈的条件是，当前遍历到的字符比栈顶的小，同时剩下的字符串中存在栈顶的元素。注意，如果栈中存在当前遍历到的字符的时候，不用进行处理，直接跳到下一个即可。</p>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    string removeDuplicateLetters(string s) &#123;</span><br><span class="line">        stack&lt;int&gt;st;</span><br><span class="line">        vector&lt;int&gt;total(26);</span><br><span class="line">        for(int i&#x3D;0;i&lt;s.size();++i)</span><br><span class="line">        &#123;</span><br><span class="line">            ++total[s[i]-&#39;a&#39;];</span><br><span class="line">        &#125;</span><br><span class="line">        unordered_set&lt;char&gt;s1;</span><br><span class="line">        for(int i&#x3D;0;i&lt;s.size();++i)</span><br><span class="line">        &#123;</span><br><span class="line">            if(s1.count(s[i])!&#x3D;0)</span><br><span class="line">            &#123;</span><br><span class="line">                --total[s[i]-&#39;a&#39;];</span><br><span class="line">                continue;</span><br><span class="line">            &#125;</span><br><span class="line">            while(!st.empty()&amp;&amp;s[st.top()]&gt;s[i]&amp;&amp;total[s[st.top()]-&#39;a&#39;]&gt;0)</span><br><span class="line">            &#123;</span><br><span class="line">                s1.erase(s[st.top()]);</span><br><span class="line">                st.pop();</span><br><span class="line">                </span><br><span class="line">            &#125;</span><br><span class="line">            st.push(i);</span><br><span class="line">            --total[s[i]-&#39;a&#39;];</span><br><span class="line">            s1.insert(s[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        string res;</span><br><span class="line">        while(!st.empty())</span><br><span class="line">        &#123;</span><br><span class="line">            res+&#x3D;s[st.top()];</span><br><span class="line">            st.pop();</span><br><span class="line">        &#125;</span><br><span class="line">        reverse(res.begin(),res.end());</span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>这一道单调栈题目难度不高，比较容易看出单调问题（字典序最小）。</p>
+<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>在本题中，由于字符串的切割位置不限，我们采用DFS的方法，对于每一段比较的字符串，我们遍历分割的位置，然后将其分割后比较，或者分割后交换比较，我们切割之前，首先统计比较的字符串的字符，看看它们的各个字符的个数是否一致和字符串的总长度是否一致，如果不一致，不用切割，直接返回false,如果字符串相等，直接返回true，否则进行切割递归处理。</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    bool isScramble(string s1, string s2) &#123;</span><br><span class="line">        if(s1&#x3D;&#x3D;s2)</span><br><span class="line">            return true;</span><br><span class="line">        if(s1.size()!&#x3D;s2.size())</span><br><span class="line">            return false;</span><br><span class="line">        vector&lt;int&gt;total(26);</span><br><span class="line">        for(int i&#x3D;0;i&lt;s1.size();++i)</span><br><span class="line">        &#123;</span><br><span class="line">            ++total[s1[i]-&#39;a&#39;];</span><br><span class="line">            --total[s2[i]-&#39;a&#39;];</span><br><span class="line">        &#125;</span><br><span class="line">        for(int i&#x3D;0;i&lt;total.size();++i)</span><br><span class="line">        &#123;</span><br><span class="line">            if(total[i]!&#x3D;0)</span><br><span class="line">                return false;</span><br><span class="line">        &#125;</span><br><span class="line">        for(int i&#x3D;1;i&lt;s1.size();++i)</span><br><span class="line">        &#123;</span><br><span class="line">            if(isScramble(s1.substr(0,i),s2.substr(0,i))&amp;&amp;isScramble(s1.substr(i,s1.size()-i),s2.substr(i,s2.size()-i)))&#x2F;&#x2F;两个字符串同样的切割位置</span><br><span class="line">                return true;</span><br><span class="line">            if(isScramble(s1.substr(0,i),s2.substr(s2.size()-i,i))&amp;&amp;isScramble(s1.substr(i,s1.size()-i),s2.substr(0,s2.size()-i)))&#x2F;&#x2F;两个字符串切割对称的位置</span><br><span class="line">                return true;</span><br><span class="line">        &#125;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>本题的难度比较大，需要想到在DFS的时候进行剪枝，降低复杂度。</p>
 
                 <hr>
                 
@@ -185,14 +185,14 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/2021/01/16/2021/02/02/424-替换后的最长重复字符/" data-toggle="tooltip" data-placement="top"
-                           title="424.替换后的最长重复字符">&larr; Previous Post</a>
+                        <a href="/2021/01/16/2021/02/02/90-子集Ⅱ/" data-toggle="tooltip" data-placement="top"
+                           title="90.子集Ⅱ">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/2021/01/16/2021/02/01/84-柱状图中最大的矩形/" data-toggle="tooltip" data-placement="top"
-                           title="84.柱状图中最大的矩形 85.最大矩阵">Next Post &rarr;</a>
+                        <a href="/2021/01/16/2021/02/02/424-替换后的最长重复字符/" data-toggle="tooltip" data-placement="top"
+                           title="424.替换后的最长重复字符">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
