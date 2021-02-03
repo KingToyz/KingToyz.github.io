@@ -271,6 +271,79 @@
 
 <div class="post-preview "
      style="background-image: url('')">
+    <a href="/2021/01/16/2021/02/03/114-二叉树展开为链表/">
+        <h2 class="post-title">
+            114.二叉树展开为链表
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-02-03
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                题目描述
+分析本题的主要思路：对二叉树进行先序遍历得到的是链表，由于先序遍历后需要修改右节点，先将右节点保留后再进入右边进行遍历，最后将左子树置空即可。
+代码12345678910111213141516171819202122class Solution &#123;public:    Tr..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+
+<div class="post-preview "
+     style="background-image: url('')">
+    <a href="/2021/01/16/2021/02/03/95-不同的二叉搜索树/">
+        <h2 class="post-title">
+            95.不同的二叉搜索树
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-02-03
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                题目描述
+分析本题的主要做法是对序列进行切割后，取得根节点后，左右子节点递归处理。但是要需要特别注意几点：1.递归结束的条件：当左右夹住同一个数的时候，直接返回当前节点组成的数组。2.当左子树没有节点的时候，对右子树处理，左子树不用管，右子树的情况同理。3.注意每一次修改左右子节点的时候，需要采..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+
+<div class="post-preview "
+     style="background-image: url('')">
+    <a href="/2021/01/16/2021/02/03/480-滑动窗口中位数/">
+        <h2 class="post-title">
+            480.滑动窗口中位数
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-02-03
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                题目描述
+分析本题的主要难点在于如何能快速找到位于中间的数。对于大顶堆和小顶堆，他们分别只能维护最大的和最小的。我们可以利用这一个点，设立两个堆，分别维护窗口内的值按从大到小排列的前一半和后一半，前一半是小顶堆，后一半是大顶堆，维护的时候，保持小顶堆的大小大于等于大顶堆，如果K为偶数，两个堆的大..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+
+<div class="post-preview "
+     style="background-image: url('')">
     <a href="/2021/01/16/2021/02/02/92-反转链表/">
         <h2 class="post-title">
             92.反转链表Ⅱ
@@ -429,79 +502,6 @@
             <p>
                 题目描述
 分析本题求最小的覆盖范围不是连续子串的覆盖范围，只要包含子串的所有字母即可。本题需要一个双端队列辅助解题，双端队列中维持的是满足条件的范围。首先开始遍历s，当出现t中的字符的时候，将当前下标压入队末，然后检查当前队内的范围是否满足条件。当有满足条件的范围出现的时候，我们不断地把队头弹出..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('')">
-    <a href="/2021/01/16/2021/01/31/75-颜色分类/">
-        <h2 class="post-title">
-            75.颜色分类
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-31
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                题目描述
-分析本题的难度一般。维护三个指针，left指针指向0序列的最后一个，right指针指向2序列的第一个，i指针指向当前遍历的元素。如果是0，则与left的后一位交换，如果是2，则与right的后一位交换，如果是1或者i与left指向同一个指针，i前进一位，如果i指针进入right指针的区..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('')">
-    <a href="/2021/01/16/2021/01/31/73-矩阵置零/">
-        <h2 class="post-title">
-            73.矩阵置零
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-31
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                题目描述
-分析本题采用额外空间的做法比较简单，只需开辟两个数组然后把该修改的行和列分别存起来即可。而采用O(1)的空间做法则需要借助原数组修改，我们需要借助最后的一行和一列。遍历其它行列的时候，将0所在的行列记录到最后一行和最后一列中。为了保护最后一行和一列，我们记录两个值down和right，..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('')">
-    <a href="/2021/01/16/2021/01/31/778-水位上升的泳池中游泳/">
-        <h2 class="post-title">
-            778.水位上升的泳池中游泳
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-31
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                题目描述
-分析本题的主要做法有两种。第一种方案，并查集。对于每一个相邻的路径，我们记录在一个数组内，按照两点的最高处从小到大排序，接着遍历这个数组，每次遍历后，将两个点所在的并查集合并在一起，接着判断起点和终点是否在一起，如果在一起后，直接返回当前的两点的最大值，便是最少的耗时。
-​    第二..
             </p>
         </div>
     </a>
