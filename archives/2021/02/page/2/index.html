@@ -22,7 +22,7 @@
         
     </title>
 
-    <link rel="canonical" href="https://github.com/KingToyz/KingToyz.github.io/2021/01/16/2021/01/16/tags/力扣/page/4/">
+    <link rel="canonical" href="https://github.com/KingToyz/KingToyz.github.io/2021/01/16/2021/01/16/archives/2021/02/page/2/">
 
     <!-- Bootstrap Core CSS -->
     
@@ -49,7 +49,7 @@
 <!-- hack iOS CSS :active style -->
 <body ontouchstart="" class="animated fadeIn">
 <!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "false" data-istags="true
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "false" data-istags="false
 " data-ishome = "false" >
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -151,19 +151,18 @@
 
 <div class="post-preview "
      style="background-image: url('')">
-    <a href="/2021/01/16/2021/01/24/877-石子游戏/">
+    <a href="/2021/01/16/2021/02/01/316-去除重复的字母/">
         <h2 class="post-title">
-            877.石子游戏
+            316.去除重复的字母
         </h2>
         <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-24
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-02-01
         </p>
         
         <div class="post-content-preview">
             <p>
                 题目描述
-分析本题是典型的动态规划的题目。建立DP数组，DP[i] [j]表示的是[i,j]区间下，先手能取得的最大相对分数。注意，这里当i&gt;j的时候，数组的内容是没有意义的。
-​    转移方程为dp[i] [j]=max(piles[i]-dp[i+1] [j],piles[j]-dp..
+分析本题又是一道单调栈的题。注意到需要返回的是最小字典序的字符串，那么我们需要维护一个单调栈、一个字符计数数组和一个集合。单调栈保存的是当前的最优结果，计数数组保存的是没有遍历到剩下的字符个数，集合记录的是单调栈中所有的字符。首先，单调栈出栈的条件是，当前遍历到的字符比栈顶的小，同时剩..
             </p>
         </div>
     </a>
@@ -176,212 +175,18 @@
 
 <div class="post-preview "
      style="background-image: url('')">
-    <a href="/2021/01/16/2021/01/24/886-可能的二分法/">
+    <a href="/2021/01/16/2021/02/01/84-柱状图中最大的矩形/">
         <h2 class="post-title">
-            886.可能的二分法
+            84.柱状图中最大的矩形 85.最大矩阵
         </h2>
         <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-24
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-02-01
         </p>
         
         <div class="post-content-preview">
             <p>
-                题目描述
-分析本题是一道图论题，采用的是染色法。由于只有两种颜色，那么我们在遍历没有被染色的点的时候，任意先指派一个颜色，然后对相连的点进行检查，如果没有染色，则对其染上相反的颜色，如果染上了相同的颜色，那么这种方案就是错误的。我们需要知道，任意染上的一个颜色对于最终的答案是没有影响的（无论它是..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('')">
-    <a href="/2021/01/16/2021/01/24/887-鸡蛋掉落/">
-        <h2 class="post-title">
-            887.鸡蛋掉落
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-24
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                题目描述
-分析这是一道经典的动态规划的题目。首先需要理解题意，本题需要的是在所有的鸡蛋数之内，找到所有满足条件的楼层。这里采用递归解决的办法，这里递归式dp(x,y)的返回值是y个鸡蛋，x次机会所能覆盖的楼层数。首先，我们考虑递归的终止条件，当鸡蛋数是1时，我们只能决定x+1层楼（为什么要+1?..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('')">
-    <a href="/2021/01/16/2021/01/23/940-不同的子序列Ⅱ/">
-        <h2 class="post-title">
-            940.不同的子序列Ⅱ
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-23
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                题目描述
-分析本题主要方法有DFS和DP，但是由于数组长度达到了2000，DFS的复杂度比较高，这里主要采用DP的方法。设数组DP,DP[i]表示以S[i-1]为结尾的子串的组合数（注意这里并不是指每个组合都是以S[i-1]结尾，而是这一个子串构成的组合数）。由于重复的字符串的原因，我们需要去重..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('')">
-    <a href="/2021/01/16/2021/01/23/945-使数组唯一的最小增量/">
-        <h2 class="post-title">
-            945.使数组唯一的最小增量
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-23
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                题目描述
-分析题目要求数组的值唯一，我们可以这样理解:让每个数都去占一个位置，注意位置的选择只能大于等于本身。那么，我们可以先记录数组中的最大与最小，同时开一个哈希表，记录各个位置上的个数。接着从最小开始遍历，同时维护一个整型now，代表遍历到当前的数时没有位置的个数，来到这个位置后，将移动的次..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('')">
-    <a href="/2021/01/16/2021/01/23/947-移除最多的同行或同列的石头/">
-        <h2 class="post-title">
-            947.移除最多的同行或同列的石头
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-23
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                题目描述
-分析本题需要注意到具有相同行或者相同列的石头是同一组，对于同一组的石头，我们只需留下一个，这样便可构造并查集，具有同行或者同列关系的归入一个并查集，最后答案便是总的石头的个数减去并查集的个数。
-代码12345678910111213141516171819202122232425262..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('')">
-    <a href="/2021/01/16/2021/01/22/968-监控二叉树/">
-        <h2 class="post-title">
-            968.监控二叉树
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-22
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                题目描述
-分析本题是较难的树的题目，本题的难点在于如何去决定最优的做法，本题主题是动态规划，但是我更觉得是一题贪心的题目，对于每个节点，我们只有不得不放的时候才决定放一个，由于一个摄像头可以监控儿子与父亲，我们不妨这样思考：在儿子的儿子先处理好后，再自己的处理，因为儿子的儿子的处理是与自己的处理..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('')">
-    <a href="/2021/01/16/2021/01/22/1203-项目管理/">
-        <h2 class="post-title">
-            1203.项目管理
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-22
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                题目描述
-分析本题是图论题，由于所有组需要分开进行，所有项目可能会有相应的前驱，本题采用的是拓扑排序的做法。在本题中，由于出现-1这一个问题，但是它可以加入任何的组，所有我们可以假设他们属于新的不同的组，它们插入安排是任意的，即它们和其它组没有前驱与后继的关系。接着，我们对项目和组分成两个图进行..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('')">
-    <a href="/2021/01/16/2021/01/22/1206-设计跳表/">
-        <h2 class="post-title">
-            1206.设计跳表
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-22
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                题目描述
-分析本题需要先清楚redis里面一个数据结构——跳表的概念，跳表是几个level构成的的链表，每个节点有两根指针，其中down指针指向下一个level，next指针指向右边的节点，同时，指向下个level的节点的值即down指针所指的节点的值必定等于当前的节点值，右边的节点即next指..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('')">
-    <a href="/2021/01/16/2021/01/21/1171-从链表中删去总和值为零的连续节点/">
-        <h2 class="post-title">
-            1171.从链表中删去总和值为零的连续节点
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-21
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                题目描述
-分析本题需要采用递归处理每一个节点开头的和，同时，如果出现了和为0的连续节点，需要从头开始递归。
-代码1234567891011121314151617ListNode* removeZeroSumSublists(ListNode* head) &#123;        if(!h..
+                第一题题目描述
+分析本题可以采用暴力的解法，时间复杂度O（n^2）的解法，但是可以采用单调栈的解法。开辟一个单调栈，栈里面从栈底到栈顶的元素放进的是单调增加的高度，这里存放的是heights数组中的下标。注意理解一个概念，栈里面的元素是尚未决定的最大矩形的左边起始下标，那么什么时候可以决定呢？就..
             </p>
         </div>
     </a>
@@ -398,13 +203,9 @@
 <ul class="pager">
     
     <li class="previous">
-        <a href="/2021/01/16/tags/力扣/page/3/">&larr; Newer Posts</a>
+        <a href="/2021/01/16/archives/2021/02/">&larr; Newer Posts</a>
     </li>
     
-    
-    <li class="next">
-        <a href="/2021/01/16/tags/力扣/page/5/">Older Posts &rarr;</a>
-    </li>
     
 </ul>
 

@@ -151,6 +151,78 @@
 
 <div class="post-preview "
      style="background-image: url('')">
+    <a href="/2021/01/16/2021/02/01/84-柱状图中最大的矩形/">
+        <h2 class="post-title">
+            84.柱状图中最大的矩形 85.最大矩阵
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-02-01
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                第一题题目描述
+分析本题可以采用暴力的解法，时间复杂度O（n^2）的解法，但是可以采用单调栈的解法。开辟一个单调栈，栈里面从栈底到栈顶的元素放进的是单调增加的高度，这里存放的是heights数组中的下标。注意理解一个概念，栈里面的元素是尚未决定的最大矩形的左边起始下标，那么什么时候可以决定呢？就..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+
+<div class="post-preview "
+     style="background-image: url('')">
+    <a href="/2021/01/16/2021/01/31/76-最小覆盖子串/">
+        <h2 class="post-title">
+            76.最小覆盖子串
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-31
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                题目描述
+分析本题求最小的覆盖范围不是连续子串的覆盖范围，只要包含子串的所有字母即可。本题需要一个双端队列辅助解题，双端队列中维持的是满足条件的范围。首先开始遍历s，当出现t中的字符的时候，将当前下标压入队末，然后检查当前队内的范围是否满足条件。当有满足条件的范围出现的时候，我们不断地把队头弹出..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+
+<div class="post-preview "
+     style="background-image: url('')">
+    <a href="/2021/01/16/2021/01/31/75-颜色分类/">
+        <h2 class="post-title">
+            75.颜色分类
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-31
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                题目描述
+分析本题的难度一般。维护三个指针，left指针指向0序列的最后一个，right指针指向2序列的第一个，i指针指向当前遍历的元素。如果是0，则与left的后一位交换，如果是2，则与right的后一位交换，如果是1或者i与left指向同一个指针，i前进一位，如果i指针进入right指针的区..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+
+<div class="post-preview "
+     style="background-image: url('')">
     <a href="/2021/01/16/2021/01/31/73-矩阵置零/">
         <h2 class="post-title">
             73.矩阵置零
@@ -310,78 +382,6 @@
                 题目描述
 分析本题的难度较大。维护两个数组，分别代表左边（包括自己）的最大，右边（包括自己）的最大，由雨水的储存可以知道，在当前台阶上存的雨水必定是左右最大值中较小的那个减去当前的高度。遍历所有的点即可。
 代码1234567891011121314151617181920212223242526..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('')">
-    <a href="/2021/01/16/2021/01/27/765-情侣牵手/">
-        <h2 class="post-title">
-            765.情侣牵手
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-27
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                题目描述
-分析本题的难度较大。我们先假设存在一个错误环，在错误环内， 所有都能找到自己的匹配，而自己当前的匹配都是错误的，设这个错误环中的对数为K，那么需要交换K-1次才能还原（A1-B1 B2-C1 C2-D1 D2-A2需要交换3次）。那么，我们可以采用并查集的方法，将位于相邻位置的对和正确..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('')">
-    <a href="/2021/01/16/2021/01/27/41-缺失的第一个正数/">
-        <h2 class="post-title">
-            41.缺失的第一个正数
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-27
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                题目描述
-分析本题的难点在于要做到O(n)的时间复杂度以及常数级别的额外空间。我们可以利用数组本身的，由于缺少的整数必定是1-n+1(n为数组的长度),所以我们可以利用数组的下标（0-n-1），对于出现过的1到n的数x，我们记录到相应的下标x-1（取负数）,最后我们遍历数组，找没有出现负数的位置..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('')">
-    <a href="/2021/01/16/2021/01/27/40-组合之和Ⅱ/">
-        <h2 class="post-title">
-            40.组合之和Ⅱ
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-27
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                题目描述
-分析本题是一道经典的DFS题目，对于组合之和Ⅰ，本题的元素出现了重复的值，那么解决办法需要一点技巧。首先，我们先对待选数组进行排序，让所有相同的数都排在一起，接着，我们进行遍历，在遍历的过程中，我们要注意，如果前一个数与当前的数相同，我们选择跳过。在进入下次递归的时候，我们从传入的下标..
             </p>
         </div>
     </a>

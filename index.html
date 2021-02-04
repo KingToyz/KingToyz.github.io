@@ -271,6 +271,78 @@
 
 <div class="post-preview "
      style="background-image: url('')">
+    <a href="/2021/01/16/2021/02/04/124-二叉树中的最大路径和/">
+        <h2 class="post-title">
+            124.二叉树中的最大路径和
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-02-04
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                题目描述
+分析本题的难度不大，首先可以对每一个节点作为根节点，然后递归处理（具体见代码）。为了减低时间复杂度，我们可以利用局部的答案，当求以一个节点为根节点的最大值的时候，我们是以左边的最大加上根节点，或者右边的最大加上根节点，或者两边相加再加上根节点，或者根节点本身。那么向上返回的时候，我们只..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+
+<div class="post-preview "
+     style="background-image: url('')">
+    <a href="/2021/01/16/2021/02/04/117-填充每个节点的下一个右侧节点指针Ⅱ/">
+        <h2 class="post-title">
+            117.填充每个节点的下一个右侧节点指针Ⅱ
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-02-04
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                题目描述
+分析本题的难度在于采用常数级别的空间解决问题。我们不能使用队列BFS的做法，但是我们可以使用递归方法处理。对于每个节点的连接，我们可以采用已经连接起来的节点进行处理，对于已经连接起来的节点，我们递归处理，同时连接起来他们的子节点，我们需要维护两个指针，一个前指针before，一个是下一..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+
+<div class="post-preview "
+     style="background-image: url('')">
+    <a href="/2021/01/16/2021/02/04/115-不同的子序列/">
+        <h2 class="post-title">
+            115.不同的子序列
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-02-04
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                题目描述
+分析本题采用动态规划的方法来做。设立dp数组，dp[i] [j]表示以s[i-1]为结尾的字符串中子序列中出现t[j-1]为结尾的字符串的个数。首先对dp数组做预处理，考虑空串匹配的情况dp[i] [0]均为1，转移方程：当s[i-1]==t[j-1]时，dp[i] [j]=dp[i-..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+
+<div class="post-preview "
+     style="background-image: url('')">
     <a href="/2021/01/16/2021/02/03/114-二叉树展开为链表/">
         <h2 class="post-title">
             114.二叉树展开为链表
@@ -430,78 +502,6 @@
             <p>
                 题目描述
 分析本题采用滑动窗口的做法。首先，窗口的大小是当前的重复字符串的大小，当右指针向右移动扩大窗口的时候，我们需要判断是否还满足重复字符串的要求，如果不满足，我们将左指针左移缩小窗口，直到窗口内的字符串满足要求即可。注意记录答案。另外，我们可以优化这种做法，我们记录一个窗口内的最多字符的值..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('')">
-    <a href="/2021/01/16/2021/02/01/316-去除重复的字母/">
-        <h2 class="post-title">
-            316.去除重复的字母
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-02-01
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                题目描述
-分析本题又是一道单调栈的题。注意到需要返回的是最小字典序的字符串，那么我们需要维护一个单调栈、一个字符计数数组和一个集合。单调栈保存的是当前的最优结果，计数数组保存的是没有遍历到剩下的字符个数，集合记录的是单调栈中所有的字符。首先，单调栈出栈的条件是，当前遍历到的字符比栈顶的小，同时剩..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('')">
-    <a href="/2021/01/16/2021/02/01/84-柱状图中最大的矩形/">
-        <h2 class="post-title">
-            84.柱状图中最大的矩形 85.最大矩阵
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-02-01
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                第一题题目描述
-分析本题可以采用暴力的解法，时间复杂度O（n^2）的解法，但是可以采用单调栈的解法。开辟一个单调栈，栈里面从栈底到栈顶的元素放进的是单调增加的高度，这里存放的是heights数组中的下标。注意理解一个概念，栈里面的元素是尚未决定的最大矩形的左边起始下标，那么什么时候可以决定呢？就..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('')">
-    <a href="/2021/01/16/2021/01/31/76-最小覆盖子串/">
-        <h2 class="post-title">
-            76.最小覆盖子串
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-31
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                题目描述
-分析本题求最小的覆盖范围不是连续子串的覆盖范围，只要包含子串的所有字母即可。本题需要一个双端队列辅助解题，双端队列中维持的是满足条件的范围。首先开始遍历s，当出现t中的字符的时候，将当前下标压入队末，然后检查当前队内的范围是否满足条件。当有满足条件的范围出现的时候，我们不断地把队头弹出..
             </p>
         </div>
     </a>
