@@ -151,6 +151,105 @@
 
 <div class="post-preview "
      style="background-image: url('')">
+    <a href="/2021/01/16/2021/01/26/23-合并K个升序链表/">
+        <h2 class="post-title">
+            23.合并K个升序链表
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-26
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                题目描述
+分析经典的归并排序的题目，本题的关键点在于要对整个数组进行二分递归处理，然后得到的两个链表进行归并后返回即可。注意空指针的处理。
+代码1234567891011121314151617181920212223242526272829303132333435363738394041424..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+
+<div class="post-preview "
+     style="background-image: url('')">
+    <a href="/2021/01/16/2021/01/26/10-正则表达式匹配/">
+        <h2 class="post-title">
+            10.正则表达式匹配
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-26
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                题目描述
+分析本题的需要考虑多种情况，我们应该首先分析：
+​    当p的下一个为*的时候。我们面临着：1.当前的是匹配的，那么s推进一格并且p不推进（直到不匹配后p再推进，转2.）或者s不推进并且p推进两格（不用这个匹配，用下面的匹配（注意这里如果s也推进的话可能会导致后面的不匹配，如果当前确..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+
+<div class="post-preview "
+     style="background-image: url('')">
+    <a href="/2021/01/16/2021/01/26/4-寻找两个正序数组中的中位数/">
+        <h2 class="post-title">
+            4.寻找两个正序数组中的中位数
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-26
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                题目描述
+分析本题需要在O(log(m+n))的时间复杂度下完成。需要做的是二分法，但是这一题的二分法与传统的不一样。我们不是对两个数组进行二分，而是对目标的距离进行二分。设K为我们需要找到的值在两个数组中的排位，考虑到奇数与偶数的问题。对于奇数n，我们需要的是第(n+1)/2个值，对于偶数m，..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+
+<div class="post-preview "
+     style="background-image: url('')">
+    <a href="/2021/01/16/2021/01/26/834-树中距离之和/">
+        <h2 class="post-title">
+            834.树中距离之和
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-26
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                题目描述
+分析本题是难度较大的DFS题目。需要分为两步DFS来求，同时需要设立两个数组。第一个数组cnt表示的是该节点的子树的节点的个数及其本身，第二个数组res在第一步中表示的该节点到其所有子树的距离。在第一次dfs前，先将数组cnt初始化为1表示自己本身。
+​    在第一次dfs中，先递归..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+
+<div class="post-preview "
+     style="background-image: url('')">
     <a href="/2021/01/16/2021/01/25/959-由斜杠划分区域/">
         <h2 class="post-title">
             959.由斜杠划分区域
@@ -287,103 +386,6 @@
             <p>
                 题目描述
 分析题目要求数组的值唯一，我们可以这样理解:让每个数都去占一个位置，注意位置的选择只能大于等于本身。那么，我们可以先记录数组中的最大与最小，同时开一个哈希表，记录各个位置上的个数。接着从最小开始遍历，同时维护一个整型now，代表遍历到当前的数时没有位置的个数，来到这个位置后，将移动的次..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('')">
-    <a href="/2021/01/16/2021/01/23/947-移除最多的同行或同列的石头/">
-        <h2 class="post-title">
-            947.移除最多的同行或同列的石头
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-23
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                题目描述
-分析本题需要注意到具有相同行或者相同列的石头是同一组，对于同一组的石头，我们只需留下一个，这样便可构造并查集，具有同行或者同列关系的归入一个并查集，最后答案便是总的石头的个数减去并查集的个数。
-代码12345678910111213141516171819202122232425262..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('')">
-    <a href="/2021/01/16/2021/01/22/968-监控二叉树/">
-        <h2 class="post-title">
-            968.监控二叉树
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-22
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                题目描述
-分析本题是较难的树的题目，本题的难点在于如何去决定最优的做法，本题主题是动态规划，但是我更觉得是一题贪心的题目，对于每个节点，我们只有不得不放的时候才决定放一个，由于一个摄像头可以监控儿子与父亲，我们不妨这样思考：在儿子的儿子先处理好后，再自己的处理，因为儿子的儿子的处理是与自己的处理..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('')">
-    <a href="/2021/01/16/2021/01/22/1203-项目管理/">
-        <h2 class="post-title">
-            1203.项目管理
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-22
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                题目描述
-分析本题是图论题，由于所有组需要分开进行，所有项目可能会有相应的前驱，本题采用的是拓扑排序的做法。在本题中，由于出现-1这一个问题，但是它可以加入任何的组，所有我们可以假设他们属于新的不同的组，它们插入安排是任意的，即它们和其它组没有前驱与后继的关系。接着，我们对项目和组分成两个图进行..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('')">
-    <a href="/2021/01/16/2021/01/22/1206-设计跳表/">
-        <h2 class="post-title">
-            1206.设计跳表
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-22
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                题目描述
-分析本题需要先清楚redis里面一个数据结构——跳表的概念，跳表是几个level构成的的链表，每个节点有两根指针，其中down指针指向下一个level，next指针指向右边的节点，同时，指向下个level的节点的值即down指针所指的节点的值必定等于当前的节点值，右边的节点即next指..
             </p>
         </div>
     </a>

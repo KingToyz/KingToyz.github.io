@@ -151,6 +151,103 @@
 
 <div class="post-preview "
      style="background-image: url('')">
+    <a href="/2021/01/16/2021/02/02/92-反转链表/">
+        <h2 class="post-title">
+            92.反转链表Ⅱ
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-02-02
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                题目描述
+分析本题要一次扫描完成，首先研究不是一次扫描的方法，先找到反转链表的前一位和后一位，这里为了方便处理，设置了一个dummyhead。接着反转链表，最后把链表接上即可。一次扫描的方案只需要将找前一位、后一位和反转链表三个同时进行即可。注意，空指针的处理问题。
+代码123456789101..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+
+<div class="post-preview "
+     style="background-image: url('')">
+    <a href="/2021/01/16/2021/02/02/87-扰乱字符串/">
+        <h2 class="post-title">
+            87.扰乱字符串
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-02-02
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                题目描述
+分析在本题中，由于字符串的切割位置不限，我们采用DFS的方法，对于每一段比较的字符串，我们遍历分割的位置，然后将其分割后比较，或者分割后交换比较，我们切割之前，首先统计比较的字符串的字符，看看它们的各个字符的个数是否一致和字符串的总长度是否一致，如果不一致，不用切割，直接返回false..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+
+<div class="post-preview "
+     style="background-image: url('')">
+    <a href="/2021/01/16/2021/02/02/424-替换后的最长重复字符/">
+        <h2 class="post-title">
+            424.替换后的最长重复字符
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-02-02
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                题目描述
+分析本题采用滑动窗口的做法。首先，窗口的大小是当前的重复字符串的大小，当右指针向右移动扩大窗口的时候，我们需要判断是否还满足重复字符串的要求，如果不满足，我们将左指针左移缩小窗口，直到窗口内的字符串满足要求即可。注意记录答案。另外，我们可以优化这种做法，我们记录一个窗口内的最多字符的值..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+
+<div class="post-preview "
+     style="background-image: url('')">
+    <a href="/2021/01/16/2021/02/01/316-去除重复的字母/">
+        <h2 class="post-title">
+            316.去除重复的字母
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-02-01
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                题目描述
+分析本题又是一道单调栈的题。注意到需要返回的是最小字典序的字符串，那么我们需要维护一个单调栈、一个字符计数数组和一个集合。单调栈保存的是当前的最优结果，计数数组保存的是没有遍历到剩下的字符个数，集合记录的是单调栈中所有的字符。首先，单调栈出栈的条件是，当前遍历到的字符比栈顶的小，同时剩..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+
+<div class="post-preview "
+     style="background-image: url('')">
     <a href="/2021/01/16/2021/02/01/84-柱状图中最大的矩形/">
         <h2 class="post-title">
             84.柱状图中最大的矩形 85.最大矩阵
@@ -284,104 +381,6 @@
             <p>
                 题目描述
 分析本题的方法有三种。第一种，DFS，对所有路径进行遍历，取最小值，但是会超时。第二种，迪杰斯特拉最短路径算法的变形。对于每一点的路径，我们选择的是到达该点的时候的最大绝对差值，每一次遍历选择没有被更新过的最短路径的点，然后更新它的周围的路径，最后得到终点位置的距离值即为答案。第三种，..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('')">
-    <a href="/2021/01/16/2021/01/28/72-编辑距离/">
-        <h2 class="post-title">
-            72.编辑距离
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-28
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                题目描述
-分析本题的难度较大。设立二维DP数组，dp[i] [j]表示当前字符word1[i-1],word2[j-1]子串相同的时候最小的操作次数。当前的word1[i]==word2[j]相同的时候，我们不用修改dp[i] [j]=dp[i-1] [j-1]。当两者不同的时候，我们分为三种情..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('')">
-    <a href="/2021/01/16/2021/01/28/56-合并区间/">
-        <h2 class="post-title">
-            56.合并区间
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-28
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                题目描述
-分析本题难度较低，注意要先采取按区间的先后顺序排序，只更新右区间的大小的时候要注意包含的情况。
-代码12345678910111213141516171819202122232425class Solution &#123;public:    vector&lt;vector&lt;..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('')">
-    <a href="/2021/01/16/2021/01/28/45-跳跃游戏Ⅱ/">
-        <h2 class="post-title">
-            45.跳跃游戏Ⅱ
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-28
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                题目描述
-分析本题的难度中等。第一种方法，首先维护一个数组，表示到达该点的最少步数，由题意可知，首先遍历的肯定不会比后遍历的次数多，那么，在填充数据的时候，先从最大开始填，遇到不为0的立即停下即可（因为已经填上的次数要么相等要么一样），最后返回最后一个数即可。第二种方法，维护一个能到达的最大位置..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('')">
-    <a href="/2021/01/16/2021/01/28/42-接雨水/">
-        <h2 class="post-title">
-            42.接雨水
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-28
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                题目描述
-分析本题的难度较大。维护两个数组，分别代表左边（包括自己）的最大，右边（包括自己）的最大，由雨水的储存可以知道，在当前台阶上存的雨水必定是左右最大值中较小的那个减去当前的高度。遍历所有的点即可。
-代码1234567891011121314151617181920212223242526..
             </p>
         </div>
     </a>

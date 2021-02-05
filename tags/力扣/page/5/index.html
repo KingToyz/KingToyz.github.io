@@ -151,6 +151,103 @@
 
 <div class="post-preview "
      style="background-image: url('')">
+    <a href="/2021/01/16/2021/01/22/968-监控二叉树/">
+        <h2 class="post-title">
+            968.监控二叉树
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-22
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                题目描述
+分析本题是较难的树的题目，本题的难点在于如何去决定最优的做法，本题主题是动态规划，但是我更觉得是一题贪心的题目，对于每个节点，我们只有不得不放的时候才决定放一个，由于一个摄像头可以监控儿子与父亲，我们不妨这样思考：在儿子的儿子先处理好后，再自己的处理，因为儿子的儿子的处理是与自己的处理..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+
+<div class="post-preview "
+     style="background-image: url('')">
+    <a href="/2021/01/16/2021/01/22/1203-项目管理/">
+        <h2 class="post-title">
+            1203.项目管理
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-22
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                题目描述
+分析本题是图论题，由于所有组需要分开进行，所有项目可能会有相应的前驱，本题采用的是拓扑排序的做法。在本题中，由于出现-1这一个问题，但是它可以加入任何的组，所有我们可以假设他们属于新的不同的组，它们插入安排是任意的，即它们和其它组没有前驱与后继的关系。接着，我们对项目和组分成两个图进行..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+
+<div class="post-preview "
+     style="background-image: url('')">
+    <a href="/2021/01/16/2021/01/22/1206-设计跳表/">
+        <h2 class="post-title">
+            1206.设计跳表
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-22
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                题目描述
+分析本题需要先清楚redis里面一个数据结构——跳表的概念，跳表是几个level构成的的链表，每个节点有两根指针，其中down指针指向下一个level，next指针指向右边的节点，同时，指向下个level的节点的值即down指针所指的节点的值必定等于当前的节点值，右边的节点即next指..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+
+<div class="post-preview "
+     style="background-image: url('')">
+    <a href="/2021/01/16/2021/01/21/1171-从链表中删去总和值为零的连续节点/">
+        <h2 class="post-title">
+            1171.从链表中删去总和值为零的连续节点
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-21
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                题目描述
+分析本题需要采用递归处理每一个节点开头的和，同时，如果出现了和为0的连续节点，需要从头开始递归。
+代码1234567891011121314151617ListNode* removeZeroSumSublists(ListNode* head) &#123;        if(!h..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+
+<div class="post-preview "
+     style="background-image: url('')">
     <a href="/2021/01/16/2021/01/21/1202-交换字符串中的元素/">
         <h2 class="post-title">
             1202.交换字符串中的元素
@@ -289,106 +386,6 @@
 分析本题是一题关于搜索的题目，可以采用深度优先搜索+剪枝的方法，也可以采用广度优先搜索加剪枝的方法，注意深度优先搜索的时候可以将减1这一过程直接跳过，可以稍微降低复杂度。
 代码深度优先搜索+剪枝，注意要采用哈希表来储存元素，vector会爆内存
 123456789unordered_m..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('')">
-    <a href="/2021/01/16/2021/01/19/1722-执行交换操作后的最小汉明距离/">
-        <h2 class="post-title">
-            1722.执行交换操作后的最小汉明距离
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-19
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                题解
-分析本题主要考察的是对交换操作的理解，由于可以交换任意次，意味着有直接或者间接联系的两方能够相互交换，可以利用这个特点建立并查集，之后建立哈希表记录元素在source的位置，最后遍历target判断目标与源的位置是否在同一个并查集，若存在则汉明距离减一，同时在哈希表中进行删除和插入即可。
-..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('')">
-    <a href="/2021/01/16/2021/01/19/回文链表/">
-        <h2 class="post-title">
-            回文链表
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-19
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                题目描述
-分析本题需要在O(1)的空间复杂度和O(n)的时间复杂度解决问题，可以先将后半部分处理，将其反转即可。
-注意链表长度为奇数和偶数时候的处理的不同。
-代码1234567891011121314151617181920212223242526272829303132333435363738..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('')">
-    <a href="/2021/01/16/2021/01/18/搜索旋转数组/">
-        <h2 class="post-title">
-            搜索旋转数组
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-18
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                题目一描述
-分析本题是二分搜索的进阶版，首先序列被分为了左右两半，我们需要判断落在哪一边的时候需要先判断mid的位置，详情见代码。
-代码12345678910111213141516171819202122232425262728293031323334int search(vector&lt;..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('')">
-    <a href="/2021/01/16/2021/01/18/面试题03-02栈的最小值/">
-        <h2 class="post-title">
-            面试题03.02栈的最小值
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-18
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                题目描述
-分析这题虽然力扣上给的难度是简单，但是还是要多加思考才能想出。本题的主要难点在于如何才能保证在O(1)的时间复杂度里解决问题，常有的思维是最大最小问题的复杂度最好是O(log n)，但是在这一题中要做到O(1)我们就要考虑栈的特点了，在栈中，由先进先出的特点，当有比栈中更小的值进来的时..
             </p>
         </div>
     </a>

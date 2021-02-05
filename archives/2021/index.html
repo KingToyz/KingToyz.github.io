@@ -151,6 +151,103 @@
 
 <div class="post-preview "
      style="background-image: url('')">
+    <a href="/2021/01/16/2021/02/05/145-二叉树的后序遍历/">
+        <h2 class="post-title">
+            145.二叉树的后序遍历
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-02-05
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                题目描述
+分析本题主要需要非递归的做法。设置一个栈st和遍历的前驱节点pre，当前节点入栈，然后往左，遇到空的时候，我们需要判断，如果栈顶的右边为空，或者栈顶的右边就是前驱节点pre,更新pre为当前节点，当前节点出栈并输出当前的值。栈空并且当前节点为空的时候退出循环即可。
+代码12345678..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+
+<div class="post-preview "
+     style="background-image: url('')">
+    <a href="/2021/01/16/2021/02/05/135-分发糖果/">
+        <h2 class="post-title">
+            135.分发糖果
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-02-05
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                题目描述
+分析本题的难度在于理解题意。评分更高的拥有比他两侧邻位的糖果多，说的是比两侧邻位的评分更高的情况下。我们不妨先从右边比左边高的情况下处理，从左到右，出现右边的比左边评分高时候，当前的值取左边的值加1，否则取1。接着从右到左，处理左边比右边大的时候，当左边比右边的评分高并且右边的糖果比左..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+
+<div class="post-preview "
+     style="background-image: url('')">
+    <a href="/2021/01/16/2021/02/05/134-加油站/">
+        <h2 class="post-title">
+            134.加油站
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-02-05
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                题目描述
+分析本题需要一定的技巧。取两个值，total表示整段路下来的汽油剩余量，now表示当前答案出发的条件下，去到终点的汽油量。先抛出结论，当去到终点的时候，total和now都是大于等于0的话，答案就是当前的答案。因为now的值保证了从该点出发能去到终点回到起点，而total表示的是，假设..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+
+<div class="post-preview "
+     style="background-image: url('')">
+    <a href="/2021/01/16/2021/02/05/128-最长连续序列/">
+        <h2 class="post-title">
+            128.最长连续序列
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-02-05
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                题目描述
+分析本题我采用两种做法。第一种，采用并查集的做法，用集合记录存在的数，再用并查集合并相邻的数，最后计算各个并查集的大小，取最大的即可。但是这种做法的时间复杂度貌似不是O（n）。第二种做法，采用哈希表的做法，哈希表中记录的是该数所在集合的大小。对于每个哈希表中为0的数，我们合并他们左右两..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+
+<div class="post-preview "
+     style="background-image: url('')">
     <a href="/2021/01/16/2021/02/04/124-二叉树中的最大路径和/">
         <h2 class="post-title">
             124.二叉树中的最大路径和
@@ -284,104 +381,6 @@
             <p>
                 题目描述
 分析本题的主要难点在于如何能快速找到位于中间的数。对于大顶堆和小顶堆，他们分别只能维护最大的和最小的。我们可以利用这一个点，设立两个堆，分别维护窗口内的值按从大到小排列的前一半和后一半，前一半是小顶堆，后一半是大顶堆，维护的时候，保持小顶堆的大小大于等于大顶堆，如果K为偶数，两个堆的大..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('')">
-    <a href="/2021/01/16/2021/02/02/92-反转链表/">
-        <h2 class="post-title">
-            92.反转链表Ⅱ
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-02-02
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                题目描述
-分析本题要一次扫描完成，首先研究不是一次扫描的方法，先找到反转链表的前一位和后一位，这里为了方便处理，设置了一个dummyhead。接着反转链表，最后把链表接上即可。一次扫描的方案只需要将找前一位、后一位和反转链表三个同时进行即可。注意，空指针的处理问题。
-代码123456789101..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('')">
-    <a href="/2021/01/16/2021/02/02/90-子集Ⅱ/">
-        <h2 class="post-title">
-            90.子集Ⅱ
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-02-02
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                题目描述
-分析本题也是一道DFS的题目，不断对当前取数的下标进行移动，将遍历到的数存进数组后，接着递归后面的子数组，递归返回后弹出数组的最后一个数，接着遍历下一个数进行递归，注意重复数字的处理即可。
-代码1234567891011121314151617181920212223242526272..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('')">
-    <a href="/2021/01/16/2021/02/02/87-扰乱字符串/">
-        <h2 class="post-title">
-            87.扰乱字符串
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-02-02
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                题目描述
-分析在本题中，由于字符串的切割位置不限，我们采用DFS的方法，对于每一段比较的字符串，我们遍历分割的位置，然后将其分割后比较，或者分割后交换比较，我们切割之前，首先统计比较的字符串的字符，看看它们的各个字符的个数是否一致和字符串的总长度是否一致，如果不一致，不用切割，直接返回false..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('')">
-    <a href="/2021/01/16/2021/02/02/424-替换后的最长重复字符/">
-        <h2 class="post-title">
-            424.替换后的最长重复字符
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-02-02
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                题目描述
-分析本题采用滑动窗口的做法。首先，窗口的大小是当前的重复字符串的大小，当右指针向右移动扩大窗口的时候，我们需要判断是否还满足重复字符串的要求，如果不满足，我们将左指针左移缩小窗口，直到窗口内的字符串满足要求即可。注意记录答案。另外，我们可以优化这种做法，我们记录一个窗口内的最多字符的值..
             </p>
         </div>
     </a>
