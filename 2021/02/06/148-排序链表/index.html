@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword" content="">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
+    <link rel="alternate" type="application/atom+xml" title="Kawhi" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        148.排序链表｜undefined
+        
+    </title>
+
+    <link rel="canonical" href="https://github.com/KingToyz/KingToyz.github.io/2021/01/16/2021/01/16/2021/02/06/148-排序链表/">
+
+    <!-- Bootstrap Core CSS -->
+    
+<link rel="stylesheet" href="/2021/01/16/css/bootstrap.min.css">
+
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/2021/01/16/css/blog-style.css">
+
+
+    <!-- Pygments Github CSS -->
+    
+<link rel="stylesheet" href="/2021/01/16/css/syntax.css">
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/2021/01/16/">
+                <span class="brand-logo">
+                    Kawhi
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/2021/01/16/">Home</a>
+                    </li>
+					
+                    
+					
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>148.排序链表</h1>
+                    
+                    <span class="meta">
+                         作者 Kawhi
+                        <span>
+                          日期 2021-02-06
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/2021/01/16/tags/#力扣"
+                           title="力扣">力扣</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            148.排序链表
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p><img src="%E6%8D%95%E8%8E%B7.PNG"></p>
+<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>本题排序链表的方法需要在O（1）的空间复杂度和O（nlogn）的时间复杂度下解决问题。首先想到的就是归并排序，将链表切开一段段两两归并排序，段的大小从1开始到整个链表的大小。对于链表，我们需要维护一个now指针，指示当前归并的段的第一个节点，pre指针指示前一个段的最后一个指针。i表示一个段的大小。我们首先需要将now指针往后切出两个段，第一段first的大小为i,第二个段second的大小为i或者直到为空，在第二个段中可以获得下一个now指针nextnow。接着对first和second进行归并排序，分别插入到pre节点的下面。然后更新now和pre，如果now为空，更新i的大小，直到i的大小达到链表的大小。</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    ListNode* sortList(ListNode* head) &#123;</span><br><span class="line">        if(!head||!head-&gt;next)</span><br><span class="line">            return head;</span><br><span class="line">        ListNode* dummyhead&#x3D;new ListNode(-1);</span><br><span class="line">        dummyhead-&gt;next&#x3D;head;</span><br><span class="line">        ListNode* count&#x3D;head;</span><br><span class="line">        int num&#x3D;0;</span><br><span class="line">        while(count)</span><br><span class="line">        &#123;</span><br><span class="line">            ++num;</span><br><span class="line">            count&#x3D;count-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        for(int i&#x3D;1;i&lt;num;i*&#x3D;2)</span><br><span class="line">        &#123;</span><br><span class="line">            ListNode* pre&#x3D;dummyhead;</span><br><span class="line">            ListNode* now&#x3D;dummyhead-&gt;next;</span><br><span class="line">            while(now)</span><br><span class="line">            &#123;</span><br><span class="line">                ListNode* first&#x3D;now,* second&#x3D;cutfunc(now,i),* nextnow&#x3D;cutfunc(second,i);</span><br><span class="line">                ListNode* res&#x3D;meger(first,second,pre);</span><br><span class="line">                while(res-&gt;next)</span><br><span class="line">                &#123;</span><br><span class="line">                    res&#x3D;res-&gt;next;</span><br><span class="line">                &#125;</span><br><span class="line">                res-&gt;next&#x3D;nextnow;</span><br><span class="line">                now&#x3D;nextnow;</span><br><span class="line">                pre&#x3D;res;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return dummyhead-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    ListNode* cutfunc(ListNode* now,int num)&#x2F;&#x2F;切开链表，段末置空，然后返回切开后的下一个节点</span><br><span class="line">    &#123;</span><br><span class="line">        ListNode* dummyhead&#x3D;new ListNode(-1);</span><br><span class="line">        dummyhead-&gt;next&#x3D;now;</span><br><span class="line">        while(now&amp;&amp;num)</span><br><span class="line">        &#123;</span><br><span class="line">            --num;</span><br><span class="line">            dummyhead&#x3D;dummyhead-&gt;next;</span><br><span class="line">            now&#x3D;now-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        dummyhead-&gt;next&#x3D;nullptr;</span><br><span class="line">        return now;</span><br><span class="line">    &#125;</span><br><span class="line">    ListNode* meger(ListNode* first,ListNode* second,ListNode* pre)&#x2F;&#x2F;归并排序到pre指针下</span><br><span class="line">    &#123;</span><br><span class="line">        ListNode* temp&#x3D;pre;</span><br><span class="line">        while(first&amp;&amp;second)</span><br><span class="line">        &#123;</span><br><span class="line">            if(first-&gt;val&lt;second-&gt;val)</span><br><span class="line">            &#123;</span><br><span class="line">                temp-&gt;next&#x3D;first;</span><br><span class="line">                temp&#x3D;temp-&gt;next;</span><br><span class="line">                first&#x3D;first-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">            else</span><br><span class="line">            &#123;</span><br><span class="line">                temp-&gt;next&#x3D;second;</span><br><span class="line">                temp&#x3D;temp-&gt;next;</span><br><span class="line">                second&#x3D;second-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        while(first)</span><br><span class="line">        &#123;</span><br><span class="line">            temp-&gt;next&#x3D;first;</span><br><span class="line">            first&#x3D;first-&gt;next;</span><br><span class="line">            temp&#x3D;temp-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        while(second)</span><br><span class="line">        &#123;</span><br><span class="line">            temp-&gt;next&#x3D;second;</span><br><span class="line">            second&#x3D;second-&gt;next;</span><br><span class="line">            temp&#x3D;temp-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        return pre-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">&#x2F;&#x2F;附上一个快排超时的算法</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    ListNode* sortList(ListNode* head) &#123;</span><br><span class="line">        if(!head||!head-&gt;next)</span><br><span class="line">            return head;</span><br><span class="line">        ListNode* dummyhead&#x3D;new ListNode(-1);</span><br><span class="line">        dummyhead-&gt;next&#x3D;head;</span><br><span class="line">        return quicksort(dummyhead,nullptr);</span><br><span class="line">    &#125;</span><br><span class="line">    ListNode* quicksort(ListNode* head,ListNode* end)</span><br><span class="line">    &#123;</span><br><span class="line">        if(head&#x3D;&#x3D;end||head-&gt;next&#x3D;&#x3D;end||head-&gt;next-&gt;next&#x3D;&#x3D;end)</span><br><span class="line">            return head;</span><br><span class="line">        ListNode* temphead&#x3D;new ListNode(-1);&#x2F;&#x2F;temphead为小的一半，p为大的一半</span><br><span class="line">        ListNode* partition&#x3D;head-&gt;next,*p&#x3D;partition,*tp&#x3D;temphead;</span><br><span class="line">        &#x2F;&#x2F;partition为中枢</span><br><span class="line">        while(p-&gt;next!&#x3D;end)</span><br><span class="line">        &#123;</span><br><span class="line">            if(p-&gt;next-&gt;val&lt;partition-&gt;val)</span><br><span class="line">            &#123;</span><br><span class="line">            &#x2F;&#x2F;小的插入，大的跳过</span><br><span class="line">                tp-&gt;next&#x3D;p-&gt;next;</span><br><span class="line">                tp&#x3D;tp-&gt;next;</span><br><span class="line">                &#x2F;&#x2F;大的修改指针</span><br><span class="line">                p-&gt;next&#x3D;p-&gt;next-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">            else</span><br><span class="line">            &#123;</span><br><span class="line">                p&#x3D;p-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        tp-&gt;next&#x3D;head-&gt;next;</span><br><span class="line">        &#x2F;&#x2F;将中枢放在大的后面</span><br><span class="line">        head-&gt;next&#x3D;temphead-&gt;next;</span><br><span class="line">        quicksort(head,partition);</span><br><span class="line">        quicksort(partition,end);</span><br><span class="line">        return head-&gt;next;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>本题的难度较大，需要熟练使用指针和排序算法。</p>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2021/01/16/2021/02/07/665-非递减数列/" data-toggle="tooltip" data-placement="top"
+                           title="665.非递减数列">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2021/01/16/2021/02/06/146-LRU缓存/" data-toggle="tooltip" data-placement="top"
+                           title="146.LRU缓存">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%86%E6%9E%90"><span class="toc-text">分析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="toc-text">代码</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-text">总结</span></a></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Kawhi 2021
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a target="_blank" rel="noopener" href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+
+<script src="/2021/01/16/js/jquery.min.js"></script>
+
+
+<!-- Bootstrap Core JavaScript -->
+
+<script src="/2021/01/16/js/bootstrap.min.js"></script>
+
+
+<!-- Custom Theme JavaScript -->
+
+<script src="/2021/01/16/js/blog.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://github.com/KingToyz/KingToyz.github.io/2021/01/16/2021/01/16/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="">
+</body>
+
+</html>

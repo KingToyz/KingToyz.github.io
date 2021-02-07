@@ -151,6 +151,151 @@
 
 <div class="post-preview "
      style="background-image: url('')">
+    <a href="/2021/01/16/2021/02/01/316-去除重复的字母/">
+        <h2 class="post-title">
+            316.去除重复的字母
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-02-01
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                题目描述
+分析本题又是一道单调栈的题。注意到需要返回的是最小字典序的字符串，那么我们需要维护一个单调栈、一个字符计数数组和一个集合。单调栈保存的是当前的最优结果，计数数组保存的是没有遍历到剩下的字符个数，集合记录的是单调栈中所有的字符。首先，单调栈出栈的条件是，当前遍历到的字符比栈顶的小，同时剩..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+
+<div class="post-preview "
+     style="background-image: url('')">
+    <a href="/2021/01/16/2021/02/01/84-柱状图中最大的矩形/">
+        <h2 class="post-title">
+            84.柱状图中最大的矩形 85.最大矩阵
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-02-01
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                第一题题目描述
+分析本题可以采用暴力的解法，时间复杂度O（n^2）的解法，但是可以采用单调栈的解法。开辟一个单调栈，栈里面从栈底到栈顶的元素放进的是单调增加的高度，这里存放的是heights数组中的下标。注意理解一个概念，栈里面的元素是尚未决定的最大矩形的左边起始下标，那么什么时候可以决定呢？就..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+
+<div class="post-preview "
+     style="background-image: url('')">
+    <a href="/2021/01/16/2021/01/31/76-最小覆盖子串/">
+        <h2 class="post-title">
+            76.最小覆盖子串
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-31
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                题目描述
+分析本题求最小的覆盖范围不是连续子串的覆盖范围，只要包含子串的所有字母即可。本题需要一个双端队列辅助解题，双端队列中维持的是满足条件的范围。首先开始遍历s，当出现t中的字符的时候，将当前下标压入队末，然后检查当前队内的范围是否满足条件。当有满足条件的范围出现的时候，我们不断地把队头弹出..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+
+<div class="post-preview "
+     style="background-image: url('')">
+    <a href="/2021/01/16/2021/01/31/75-颜色分类/">
+        <h2 class="post-title">
+            75.颜色分类
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-31
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                题目描述
+分析本题的难度一般。维护三个指针，left指针指向0序列的最后一个，right指针指向2序列的第一个，i指针指向当前遍历的元素。如果是0，则与left的后一位交换，如果是2，则与right的后一位交换，如果是1或者i与left指向同一个指针，i前进一位，如果i指针进入right指针的区..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+
+<div class="post-preview "
+     style="background-image: url('')">
+    <a href="/2021/01/16/2021/01/31/73-矩阵置零/">
+        <h2 class="post-title">
+            73.矩阵置零
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-31
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                题目描述
+分析本题采用额外空间的做法比较简单，只需开辟两个数组然后把该修改的行和列分别存起来即可。而采用O(1)的空间做法则需要借助原数组修改，我们需要借助最后的一行和一列。遍历其它行列的时候，将0所在的行列记录到最后一行和最后一列中。为了保护最后一行和一列，我们记录两个值down和right，..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+
+<div class="post-preview "
+     style="background-image: url('')">
+    <a href="/2021/01/16/2021/01/31/778-水位上升的泳池中游泳/">
+        <h2 class="post-title">
+            778.水位上升的泳池中游泳
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-31
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                题目描述
+分析本题的主要做法有两种。第一种方案，并查集。对于每一个相邻的路径，我们记录在一个数组内，按照两点的最高处从小到大排序，接着遍历这个数组，每次遍历后，将两个点所在的并查集合并在一起，接着判断起点和终点是否在一起，如果在一起后，直接返回当前的两点的最大值，便是最少的耗时。
+​    第二..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+
+<div class="post-preview "
+     style="background-image: url('')">
     <a href="/2021/01/16/2021/01/29/1631-最小体力消耗路径/">
         <h2 class="post-title">
             1631.最小体力消耗路径
@@ -236,151 +381,6 @@
             <p>
                 题目描述
 分析本题的难度中等。第一种方法，首先维护一个数组，表示到达该点的最少步数，由题意可知，首先遍历的肯定不会比后遍历的次数多，那么，在填充数据的时候，先从最大开始填，遇到不为0的立即停下即可（因为已经填上的次数要么相等要么一样），最后返回最后一个数即可。第二种方法，维护一个能到达的最大位置..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('')">
-    <a href="/2021/01/16/2021/01/28/42-接雨水/">
-        <h2 class="post-title">
-            42.接雨水
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-28
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                题目描述
-分析本题的难度较大。维护两个数组，分别代表左边（包括自己）的最大，右边（包括自己）的最大，由雨水的储存可以知道，在当前台阶上存的雨水必定是左右最大值中较小的那个减去当前的高度。遍历所有的点即可。
-代码1234567891011121314151617181920212223242526..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('')">
-    <a href="/2021/01/16/2021/01/27/765-情侣牵手/">
-        <h2 class="post-title">
-            765.情侣牵手
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-27
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                题目描述
-分析本题的难度较大。我们先假设存在一个错误环，在错误环内， 所有都能找到自己的匹配，而自己当前的匹配都是错误的，设这个错误环中的对数为K，那么需要交换K-1次才能还原（A1-B1 B2-C1 C2-D1 D2-A2需要交换3次）。那么，我们可以采用并查集的方法，将位于相邻位置的对和正确..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('')">
-    <a href="/2021/01/16/2021/01/27/41-缺失的第一个正数/">
-        <h2 class="post-title">
-            41.缺失的第一个正数
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-27
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                题目描述
-分析本题的难点在于要做到O(n)的时间复杂度以及常数级别的额外空间。我们可以利用数组本身的，由于缺少的整数必定是1-n+1(n为数组的长度),所以我们可以利用数组的下标（0-n-1），对于出现过的1到n的数x，我们记录到相应的下标x-1（取负数）,最后我们遍历数组，找没有出现负数的位置..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('')">
-    <a href="/2021/01/16/2021/01/27/40-组合之和Ⅱ/">
-        <h2 class="post-title">
-            40.组合之和Ⅱ
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-27
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                题目描述
-分析本题是一道经典的DFS题目，对于组合之和Ⅰ，本题的元素出现了重复的值，那么解决办法需要一点技巧。首先，我们先对待选数组进行排序，让所有相同的数都排在一起，接着，我们进行遍历，在遍历的过程中，我们要注意，如果前一个数与当前的数相同，我们选择跳过。在进入下次递归的时候，我们从传入的下标..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('')">
-    <a href="/2021/01/16/2021/01/27/37-解数独/">
-        <h2 class="post-title">
-            37.解数独
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-27
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                题目描述
-分析本题是典型的深度优先搜索的题目，首先为了判断与回溯，我们需要四个数组，isv1,isv,isv2,isv3分别代表点是否遍历过，行中出现的数，列中出现的数，块中出现的数。在预处理的过程中，我们先对已经出现的数进行遍历保存。接着从（0，0）开始遍历，注意：遍历的点分为两种情况：第一种..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('')">
-    <a href="/2021/01/16/2021/01/26/31-下一个排列/">
-        <h2 class="post-title">
-            31.下一个排列
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-26
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                题目描述
-分析本题注意看清楚规律，对于一个排列的下一个排列，它必定是先将后面的大的最小的那个换上来。何为大的？当出现后面大于前面的某一个的情况的时候，何为最小？找出后面的比那一个大的最小的值，然后将它们交换，最后将交换的位置的后面的位置进行排序即可。如果没有找到比前面大的情况，则是整个序列按降序..
             </p>
         </div>
     </a>

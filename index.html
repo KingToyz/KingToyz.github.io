@@ -271,6 +271,151 @@
 
 <div class="post-preview "
      style="background-image: url('')">
+    <a href="/2021/01/16/2021/02/07/151-翻转字符串里的单词/">
+        <h2 class="post-title">
+            151.翻转字符串里的单词
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-02-07
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                题目描述
+分析本题的解决分为两个步骤，首先去除多余的空格，在我的处理逻辑中，如果前一个为空格，当前也为空格，那么删除前面的空格。最后需要另外处理前面和后面的空格。接着，我们需要反转，在反转的时候，我们先翻转各个单词，最后整个字符串进行翻转即可。
+代码12345678910111213141516..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+
+<div class="post-preview "
+     style="background-image: url('')">
+    <a href="/2021/01/16/2021/02/07/162-寻找峰值/">
+        <h2 class="post-title">
+            162.寻找峰值
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-02-07
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                题目描述
+分析本题需要在O(logn)的时间复杂度内解决问题，首先想到的是二分法。但是这里二分法不是查找有序的数组，由于这个数组必定存在峰值，我们在二分过程中，如果放在mid正好符合大于两边的值，则返回mid。如果mid落在一个上升的序列中，那么答案必定在右边，取left=mid+1即可。如果m..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+
+<div class="post-preview "
+     style="background-image: url('')">
+    <a href="/2021/01/16/2021/02/07/152-乘积最大子数组/">
+        <h2 class="post-title">
+            152.乘积最大子数组
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-02-07
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                题目描述
+分析本题是一道动态规划的题目，但是本题可以优化使用两个量imax和imin，分别表示前面数组的乘积最大值和最小值。注意当遍历到当前的数为正数的时候，imax为正的时候和imin为负的时候乘上这个整数即可，否则取当前的值nums[i]为imax和imin。当遍历为负数的时候，我们将ima..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+
+<div class="post-preview "
+     style="background-image: url('')">
+    <a href="/2021/01/16/2021/02/07/665-非递减数列/">
+        <h2 class="post-title">
+            665.非递减数列
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-02-07
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                题目描述
+分析本题的label为简单，但是题目难度还是比较大的。本题找到一个递增的两个数的时候，注意有两种修改方法，修改前者和修改后者，修改的方法均为修改为相同的数（贪心的观点）。那么修改前者的情况下需要保证前者的前一位还是不比前者大，否则修改后者。如果出现了两次递减的情况，那么返回false。..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+
+<div class="post-preview "
+     style="background-image: url('')">
+    <a href="/2021/01/16/2021/02/06/148-排序链表/">
+        <h2 class="post-title">
+            148.排序链表
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-02-06
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                题目描述
+分析本题排序链表的方法需要在O（1）的空间复杂度和O（nlogn）的时间复杂度下解决问题。首先想到的就是归并排序，将链表切开一段段两两归并排序，段的大小从1开始到整个链表的大小。对于链表，我们需要维护一个now指针，指示当前归并的段的第一个节点，pre指针指示前一个段的最后一个指针。i..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+
+<div class="post-preview "
+     style="background-image: url('')">
+    <a href="/2021/01/16/2021/02/06/146-LRU缓存/">
+        <h2 class="post-title">
+            146.LRU缓存
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-02-06
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                题目描述
+分析本题是经典的面试题目。首先需要理解LRU缓存算法，它是指最近使用的放在头部，最近最少的放在尾部。为了能够在O(1)的时间复杂度内解决问题，我们需要两个数据结构：1.哈希表 2.带头尾指针的双向链表。哈希表中的key为put操作的参数key，value为双向链表中的节点。双向链表是为..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+
+<div class="post-preview "
+     style="background-image: url('')">
     <a href="/2021/01/16/2021/02/05/145-二叉树的后序遍历/">
         <h2 class="post-title">
             145.二叉树的后序遍历
@@ -356,151 +501,6 @@
             <p>
                 题目描述
 分析本题我采用两种做法。第一种，采用并查集的做法，用集合记录存在的数，再用并查集合并相邻的数，最后计算各个并查集的大小，取最大的即可。但是这种做法的时间复杂度貌似不是O（n）。第二种做法，采用哈希表的做法，哈希表中记录的是该数所在集合的大小。对于每个哈希表中为0的数，我们合并他们左右两..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('')">
-    <a href="/2021/01/16/2021/02/04/124-二叉树中的最大路径和/">
-        <h2 class="post-title">
-            124.二叉树中的最大路径和
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-02-04
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                题目描述
-分析本题的难度不大，首先可以对每一个节点作为根节点，然后递归处理（具体见代码）。为了减低时间复杂度，我们可以利用局部的答案，当求以一个节点为根节点的最大值的时候，我们是以左边的最大加上根节点，或者右边的最大加上根节点，或者两边相加再加上根节点，或者根节点本身。那么向上返回的时候，我们只..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('')">
-    <a href="/2021/01/16/2021/02/04/117-填充每个节点的下一个右侧节点指针Ⅱ/">
-        <h2 class="post-title">
-            117.填充每个节点的下一个右侧节点指针Ⅱ
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-02-04
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                题目描述
-分析本题的难度在于采用常数级别的空间解决问题。我们不能使用队列BFS的做法，但是我们可以使用递归方法处理。对于每个节点的连接，我们可以采用已经连接起来的节点进行处理，对于已经连接起来的节点，我们递归处理，同时连接起来他们的子节点，我们需要维护两个指针，一个前指针before，一个是下一..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('')">
-    <a href="/2021/01/16/2021/02/04/115-不同的子序列/">
-        <h2 class="post-title">
-            115.不同的子序列
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-02-04
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                题目描述
-分析本题采用动态规划的方法来做。设立dp数组，dp[i] [j]表示以s[i-1]为结尾的字符串中子序列中出现t[j-1]为结尾的字符串的个数。首先对dp数组做预处理，考虑空串匹配的情况dp[i] [0]均为1，转移方程：当s[i-1]==t[j-1]时，dp[i] [j]=dp[i-..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('')">
-    <a href="/2021/01/16/2021/02/03/114-二叉树展开为链表/">
-        <h2 class="post-title">
-            114.二叉树展开为链表
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-02-03
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                题目描述
-分析本题的主要思路：对二叉树进行先序遍历得到的是链表，由于先序遍历后需要修改右节点，先将右节点保留后再进入右边进行遍历，最后将左子树置空即可。
-代码12345678910111213141516171819202122class Solution &#123;public:    Tr..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('')">
-    <a href="/2021/01/16/2021/02/03/95-不同的二叉搜索树/">
-        <h2 class="post-title">
-            95.不同的二叉搜索树
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-02-03
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                题目描述
-分析本题的主要做法是对序列进行切割后，取得根节点后，左右子节点递归处理。但是要需要特别注意几点：1.递归结束的条件：当左右夹住同一个数的时候，直接返回当前节点组成的数组。2.当左子树没有节点的时候，对右子树处理，左子树不用管，右子树的情况同理。3.注意每一次修改左右子节点的时候，需要采..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('')">
-    <a href="/2021/01/16/2021/02/03/480-滑动窗口中位数/">
-        <h2 class="post-title">
-            480.滑动窗口中位数
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-02-03
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                题目描述
-分析本题的主要难点在于如何能快速找到位于中间的数。对于大顶堆和小顶堆，他们分别只能维护最大的和最小的。我们可以利用这一个点，设立两个堆，分别维护窗口内的值按从大到小排列的前一半和后一半，前一半是小顶堆，后一半是大顶堆，维护的时候，保持小顶堆的大小大于等于大顶堆，如果K为偶数，两个堆的大..
             </p>
         </div>
     </a>

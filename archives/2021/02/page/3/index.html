@@ -22,7 +22,7 @@
         
     </title>
 
-    <link rel="canonical" href="https://github.com/KingToyz/KingToyz.github.io/2021/01/16/2021/01/16/tags/力扣/page/2/">
+    <link rel="canonical" href="https://github.com/KingToyz/KingToyz.github.io/2021/01/16/2021/01/16/archives/2021/02/page/3/">
 
     <!-- Bootstrap Core CSS -->
     
@@ -49,7 +49,7 @@
 <!-- hack iOS CSS :active style -->
 <body ontouchstart="" class="animated fadeIn">
 <!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "false" data-istags="true
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "false" data-istags="false
 " data-ishome = "false" >
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -151,224 +151,6 @@
 
 <div class="post-preview "
      style="background-image: url('')">
-    <a href="/2021/01/16/2021/02/04/124-二叉树中的最大路径和/">
-        <h2 class="post-title">
-            124.二叉树中的最大路径和
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-02-04
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                题目描述
-分析本题的难度不大，首先可以对每一个节点作为根节点，然后递归处理（具体见代码）。为了减低时间复杂度，我们可以利用局部的答案，当求以一个节点为根节点的最大值的时候，我们是以左边的最大加上根节点，或者右边的最大加上根节点，或者两边相加再加上根节点，或者根节点本身。那么向上返回的时候，我们只..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('')">
-    <a href="/2021/01/16/2021/02/04/117-填充每个节点的下一个右侧节点指针Ⅱ/">
-        <h2 class="post-title">
-            117.填充每个节点的下一个右侧节点指针Ⅱ
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-02-04
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                题目描述
-分析本题的难度在于采用常数级别的空间解决问题。我们不能使用队列BFS的做法，但是我们可以使用递归方法处理。对于每个节点的连接，我们可以采用已经连接起来的节点进行处理，对于已经连接起来的节点，我们递归处理，同时连接起来他们的子节点，我们需要维护两个指针，一个前指针before，一个是下一..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('')">
-    <a href="/2021/01/16/2021/02/04/115-不同的子序列/">
-        <h2 class="post-title">
-            115.不同的子序列
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-02-04
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                题目描述
-分析本题采用动态规划的方法来做。设立dp数组，dp[i] [j]表示以s[i-1]为结尾的字符串中子序列中出现t[j-1]为结尾的字符串的个数。首先对dp数组做预处理，考虑空串匹配的情况dp[i] [0]均为1，转移方程：当s[i-1]==t[j-1]时，dp[i] [j]=dp[i-..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('')">
-    <a href="/2021/01/16/2021/02/03/114-二叉树展开为链表/">
-        <h2 class="post-title">
-            114.二叉树展开为链表
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-02-03
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                题目描述
-分析本题的主要思路：对二叉树进行先序遍历得到的是链表，由于先序遍历后需要修改右节点，先将右节点保留后再进入右边进行遍历，最后将左子树置空即可。
-代码12345678910111213141516171819202122class Solution &#123;public:    Tr..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('')">
-    <a href="/2021/01/16/2021/02/03/95-不同的二叉搜索树/">
-        <h2 class="post-title">
-            95.不同的二叉搜索树
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-02-03
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                题目描述
-分析本题的主要做法是对序列进行切割后，取得根节点后，左右子节点递归处理。但是要需要特别注意几点：1.递归结束的条件：当左右夹住同一个数的时候，直接返回当前节点组成的数组。2.当左子树没有节点的时候，对右子树处理，左子树不用管，右子树的情况同理。3.注意每一次修改左右子节点的时候，需要采..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('')">
-    <a href="/2021/01/16/2021/02/03/480-滑动窗口中位数/">
-        <h2 class="post-title">
-            480.滑动窗口中位数
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-02-03
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                题目描述
-分析本题的主要难点在于如何能快速找到位于中间的数。对于大顶堆和小顶堆，他们分别只能维护最大的和最小的。我们可以利用这一个点，设立两个堆，分别维护窗口内的值按从大到小排列的前一半和后一半，前一半是小顶堆，后一半是大顶堆，维护的时候，保持小顶堆的大小大于等于大顶堆，如果K为偶数，两个堆的大..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('')">
-    <a href="/2021/01/16/2021/02/02/92-反转链表/">
-        <h2 class="post-title">
-            92.反转链表Ⅱ
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-02-02
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                题目描述
-分析本题要一次扫描完成，首先研究不是一次扫描的方法，先找到反转链表的前一位和后一位，这里为了方便处理，设置了一个dummyhead。接着反转链表，最后把链表接上即可。一次扫描的方案只需要将找前一位、后一位和反转链表三个同时进行即可。注意，空指针的处理问题。
-代码123456789101..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('')">
-    <a href="/2021/01/16/2021/02/02/87-扰乱字符串/">
-        <h2 class="post-title">
-            87.扰乱字符串
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-02-02
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                题目描述
-分析在本题中，由于字符串的切割位置不限，我们采用DFS的方法，对于每一段比较的字符串，我们遍历分割的位置，然后将其分割后比较，或者分割后交换比较，我们切割之前，首先统计比较的字符串的字符，看看它们的各个字符的个数是否一致和字符串的总长度是否一致，如果不一致，不用切割，直接返回false..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('')">
-    <a href="/2021/01/16/2021/02/02/424-替换后的最长重复字符/">
-        <h2 class="post-title">
-            424.替换后的最长重复字符
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-02-02
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                题目描述
-分析本题采用滑动窗口的做法。首先，窗口的大小是当前的重复字符串的大小，当右指针向右移动扩大窗口的时候，我们需要判断是否还满足重复字符串的要求，如果不满足，我们将左指针左移缩小窗口，直到窗口内的字符串满足要求即可。注意记录答案。另外，我们可以优化这种做法，我们记录一个窗口内的最多字符的值..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('')">
     <a href="/2021/01/16/2021/02/01/316-去除重复的字母/">
         <h2 class="post-title">
             316.去除重复的字母
@@ -391,19 +173,39 @@
 
 
 
+<div class="post-preview "
+     style="background-image: url('')">
+    <a href="/2021/01/16/2021/02/01/84-柱状图中最大的矩形/">
+        <h2 class="post-title">
+            84.柱状图中最大的矩形 85.最大矩阵
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-02-01
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                第一题题目描述
+分析本题可以采用暴力的解法，时间复杂度O（n^2）的解法，但是可以采用单调栈的解法。开辟一个单调栈，栈里面从栈底到栈顶的元素放进的是单调增加的高度，这里存放的是heights数组中的下标。注意理解一个概念，栈里面的元素是尚未决定的最大矩形的左边起始下标，那么什么时候可以决定呢？就..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+
 
 <!-- 翻页 pager -->
 
 <ul class="pager">
     
     <li class="previous">
-        <a href="/2021/01/16/tags/力扣/">&larr; Newer Posts</a>
+        <a href="/2021/01/16/archives/2021/02/page/2/">&larr; Newer Posts</a>
     </li>
     
-    
-    <li class="next">
-        <a href="/2021/01/16/tags/力扣/page/3/">Older Posts &rarr;</a>
-    </li>
     
 </ul>
 

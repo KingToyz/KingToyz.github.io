@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        145.二叉树的后序遍历｜undefined
+        665.非递减数列｜undefined
         
     </title>
 
-    <link rel="canonical" href="https://github.com/KingToyz/KingToyz.github.io/2021/01/16/2021/01/16/2021/02/05/145-二叉树的后序遍历/">
+    <link rel="canonical" href="https://github.com/KingToyz/KingToyz.github.io/2021/01/16/2021/01/16/2021/02/07/665-非递减数列/">
 
     <!-- Bootstrap Core CSS -->
     
@@ -143,12 +143,12 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>145.二叉树的后序遍历</h1>
+                    <h1>665.非递减数列</h1>
                     
                     <span class="meta">
                          作者 Kawhi
                         <span>
-                          日期 2021-02-05
+                          日期 2021-02-07
                          </span>
                     </span>
                     <div class="tags text-center">
@@ -163,7 +163,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            145.二叉树的后序遍历
+            665.非递减数列
         </span>
     </div>
 </header>
@@ -175,9 +175,9 @@
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
                 <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p><img src="%E6%8D%95%E8%8E%B7.PNG"></p>
-<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>本题主要需要非递归的做法。设置一个栈st和遍历的前驱节点pre，当前节点入栈，然后往左，遇到空的时候，我们需要判断，如果栈顶的右边为空，或者栈顶的右边就是前驱节点pre,更新pre为当前节点，当前节点出栈并输出当前的值。栈空并且当前节点为空的时候退出循环即可。</p>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    vector&lt;int&gt; postorderTraversal(TreeNode* root) &#123;</span><br><span class="line">        stack&lt;TreeNode*&gt;st;</span><br><span class="line">        TreeNode* now&#x3D;root;</span><br><span class="line">        TreeNode* pre&#x3D;nullptr;</span><br><span class="line">        vector&lt;int&gt;res;</span><br><span class="line">        while(!st.empty()||now)</span><br><span class="line">        &#123;</span><br><span class="line">            if(now)</span><br><span class="line">            &#123;</span><br><span class="line">                st.push(now);</span><br><span class="line">                now&#x3D;now-&gt;left;</span><br><span class="line">            &#125;</span><br><span class="line">            else</span><br><span class="line">            &#123;</span><br><span class="line">                now&#x3D;st.top();</span><br><span class="line">                if(now-&gt;right&#x3D;&#x3D;nullptr||now-&gt;right&#x3D;&#x3D;pre)&#x2F;&#x2F;pre记录的是已经处理过的前驱节点</span><br><span class="line">                &#123;</span><br><span class="line">                    st.pop();</span><br><span class="line">                    pre&#x3D;now;&#x2F;&#x2F;更新pre节点</span><br><span class="line">                    res.push_back(now-&gt;val);</span><br><span class="line">                    now&#x3D;nullptr;</span><br><span class="line">                &#125;</span><br><span class="line">                else</span><br><span class="line">                &#123;</span><br><span class="line">                    now&#x3D;now-&gt;right;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>本题需要知道pre节点的意义和非递归处理树遍历的模板。</p>
+<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>本题的label为简单，但是题目难度还是比较大的。本题找到一个递增的两个数的时候，注意有两种修改方法，修改前者和修改后者，修改的方法均为修改为相同的数（贪心的观点）。那么修改前者的情况下需要保证前者的前一位还是不比前者大，否则修改后者。如果出现了两次递减的情况，那么返回false。否则返回true。</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    bool checkPossibility(vector&lt;int&gt;&amp; nums) &#123;</span><br><span class="line">        bool flag&#x3D;true;</span><br><span class="line">        for(int i&#x3D;0;i&lt;nums.size()-1;++i)</span><br><span class="line">        &#123;</span><br><span class="line">            if(nums[i]&lt;&#x3D;nums[i+1])</span><br><span class="line">                continue;</span><br><span class="line">            else</span><br><span class="line">            &#123;</span><br><span class="line">                if(!flag)</span><br><span class="line">                &#123;</span><br><span class="line">                    return false;</span><br><span class="line">                &#125;</span><br><span class="line">                else</span><br><span class="line">                &#123;</span><br><span class="line">                    flag&#x3D;false;</span><br><span class="line">                    if(i&gt;0&amp;&amp;nums[i+1]&lt;nums[i-1])</span><br><span class="line">                        nums[i+1]&#x3D;nums[i];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;       </span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>想问题需要清晰，注意题目中修改的情况有哪几种。</p>
 
                 <hr>
                 
@@ -185,14 +185,14 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/2021/01/16/2021/02/06/146-LRU缓存/" data-toggle="tooltip" data-placement="top"
-                           title="146.LRU缓存">&larr; Previous Post</a>
+                        <a href="/2021/01/16/2021/02/07/152-乘积最大子数组/" data-toggle="tooltip" data-placement="top"
+                           title="152.乘积最大子数组">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/2021/01/16/2021/02/05/135-分发糖果/" data-toggle="tooltip" data-placement="top"
-                           title="135.分发糖果">Next Post &rarr;</a>
+                        <a href="/2021/01/16/2021/02/06/148-排序链表/" data-toggle="tooltip" data-placement="top"
+                           title="148.排序链表">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
